@@ -6,6 +6,8 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: process.env.NODE_ENV === 'production' ? '/ThanStudioMax' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/ThanStudioMax/' : '',
+  trailingSlash: true,
 }
 
 module.exports = nextConfig
