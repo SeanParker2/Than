@@ -5,8 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/ThanStudioMax' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/ThanStudioMax/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/Than' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Than/' : '',
   trailingSlash: true,
 }
 
