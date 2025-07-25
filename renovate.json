@@ -1,0 +1,63 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":automergeDigest",
+    ":automergeBranch"
+  ],
+  "schedule": ["before 6am on monday"],
+  "timezone": "Asia/Shanghai",
+  "labels": ["dependencies"],
+  "assignees": ["@seanparker2"],
+  "reviewers": ["@seanparker2"],
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true,
+      "schedule": ["at any time"]
+    },
+    {
+      "matchPackageNames": ["react", "react-dom"],
+      "groupName": "React",
+      "schedule": ["before 6am on monday"]
+    },
+    {
+      "matchPackageNames": ["next"],
+      "schedule": ["before 6am on monday"],
+      "automerge": false
+    },
+    {
+      "matchPackageNames": ["typescript", "@types/*"],
+      "groupName": "TypeScript",
+      "automerge": true
+    },
+    {
+      "matchPackageNames": ["eslint", "eslint-*"],
+      "groupName": "ESLint",
+      "automerge": true
+    },
+    {
+      "matchPackageNames": ["tailwindcss", "autoprefixer", "postcss"],
+      "groupName": "CSS Tools",
+      "automerge": true
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "schedule": ["at any time"]
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 6am on monday"]
+  },
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
+  "commitMessagePrefix": "chore(deps):",
+  "commitMessageAction": "update",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "to {{newVersion}}",
+  "rangeStrategy": "bump",
+  "bumpVersion": "patch"
+}
