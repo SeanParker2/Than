@@ -55,7 +55,7 @@ export default function Story() {
                 "alternateName": "Than Design Studio",
                 "description": "专业设计工作室，提供品牌设计、UI/UX设计、产品设计等服务",
                 "url": "https://seanparker2.github.io/Than/",
-                "logo": "https://seanparker2.github.io/Than/logo/than-studio-logo.svg",
+                "logo": "https://seanparker2.github.io/Than/logo/logo.png",
                 "image": "https://seanparker2.github.io/Than/images/story-2.png",
                 "foundingDate": "2019",
                 "foundingLocation": {
@@ -116,84 +116,87 @@ export default function Story() {
         />
       </Head>
       
-      <div className="min-h-screen bg-white">
-      {/* 英雄区域 */}
-      <section className="relative pt-20 pb-20 bg-gradient-to-br from-indigo-50 via-white to-purple-50 overflow-hidden">
-        {/* 背景装饰 */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-indigo-200 to-purple-200 rounded-full opacity-20 transform -translate-y-1/2"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-l from-blue-200 to-indigo-200 rounded-full opacity-20 transform translate-y-1/2"></div>
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full opacity-15 transform -translate-x-1/2 -translate-y-1/2"></div>
-        </div>
+      <div className="min-h-screen" style={{ backgroundColor: '#F9F9F9' }}>
+      {/* 英雄区域 - 日系简约设计 */}
+      <section className="relative pt-40 pb-40 bg-white overflow-hidden">
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-light mb-8">
-              <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
-                我们的故事
-              </span>
+            <h1 className="text-7xl md:text-9xl lg:text-[10rem] font-light mb-20 leading-none text-gray-700" style={{
+              fontFamily: '"PingFang SC", "Noto Sans SC", "Hiragino Sans GB", sans-serif',
+              fontWeight: 100,
+              letterSpacing: '3px'
+            }}>
+              STORY
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
               从创意的火花到设计的实现，Than Studio 始终致力于为客户创造独特而有意义的设计体验
             </p>
-            <div className="w-32 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 mx-auto rounded-full"></div>
           </div>
           
-          {/* 核心价值观 */}
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          {/* 核心价值观 - 日系简约设计 */}
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-16 mt-32 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gray-100 rounded-full mx-auto mb-8 flex items-center justify-center">
+                <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">创新思维</h3>
-              <p className="text-gray-600">突破传统界限，探索设计的无限可能</p>
+              <h3 className="text-lg font-light mb-4" style={{ color: '#333333' }}>创新思维</h3>
+              <p className="text-gray-600 text-sm leading-relaxed font-light">突破传统界限，探索设计的无限可能</p>
             </div>
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gray-100 rounded-full mx-auto mb-8 flex items-center justify-center">
+                <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">用心服务</h3>
-              <p className="text-gray-600">以客户需求为中心，提供贴心专业的服务</p>
+              <h3 className="text-lg font-light mb-4" style={{ color: '#333333' }}>用心服务</h3>
+              <p className="text-gray-600 text-sm leading-relaxed font-light">以客户需求为中心，提供贴心专业的服务</p>
             </div>
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gray-100 rounded-full mx-auto mb-8 flex items-center justify-center">
+                <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">高效执行</h3>
-              <p className="text-gray-600">快速响应，精准执行，确保项目完美交付</p>
+              <h3 className="text-lg font-light mb-4" style={{ color: '#333333' }}>高效执行</h3>
+              <p className="text-gray-600 text-sm leading-relaxed font-light">快速响应，精准执行，确保项目完美交付</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 现代化导航栏 */}
-      <section className="sticky top-0 z-20 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center py-6">
-            <div className="flex bg-gray-50 rounded-full p-1">
+      {/* 导航栏 - 日系简约设计 */}
+      <section className="sticky top-0 z-20 bg-white border-b border-gray-100" style={{ backgroundColor: '#F9F9F9' }}>
+        <div className="container mx-auto px-6">
+          <div className="flex justify-center py-8">
+            <div className="flex gap-8">
               {tabs.map((tab, index) => (
                 <button
                   key={tab}
-                  className={`relative px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 ${
+                  className={`relative px-2 py-1 text-lg font-light transition-all duration-300 ${
                     activeTab === tab
-                      ? 'text-white shadow-lg'
-                      : 'text-gray-600 hover:text-gray-800'
+                      ? 'border-b-2'
+                      : ''
                   }`}
                   onClick={() => setActiveTab(tab)}
                   style={{
-                    animationDelay: `${index * 100}ms`
+                    color: activeTab === tab ? '#A0BCC8' : '#333333',
+                    borderBottomColor: activeTab === tab ? '#A0BCC8' : 'transparent'
                   }}
+                  onMouseEnter={(e) => {
+                     if (activeTab !== tab) {
+                       (e.target as HTMLButtonElement).style.color = '#A0BCC8';
+                     }
+                   }}
+                   onMouseLeave={(e) => {
+                     if (activeTab !== tab) {
+                       (e.target as HTMLButtonElement).style.color = '#333333';
+                     }
+                   }}
                 >
-                  <span className="relative z-10">{tab}</span>
-                  {activeTab === tab && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-300"></div>
-                  )}
+                  {tab}
                 </button>
               ))}
             </div>
@@ -203,60 +206,57 @@ export default function Story() {
 
       {/* 关于我们 - 调整为自适应布局和等比例图片 */}
       <section 
-        className={`py-16 bg-gradient-to-b from-white to-gray-50 ${activeTab !== '关于我们' ? 'hidden' : ''}`}
+        className={`py-32 ${activeTab !== '关于我们' ? 'hidden' : ''}`}
         id="关于我们"
+        style={{ backgroundColor: '#F9F9F9' }}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className={`space-y-8 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'}`}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+              <div className={`space-y-12 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'}`}>
                 <div>
-                  <h2 className="text-4xl sm:text-5xl font-light mb-6">
-                    <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                      关于 Than Studio
-                    </span>
+                  <h2 className="text-4xl sm:text-5xl font-light mb-6 text-gray-800 leading-relaxed" style={{ letterSpacing: '2px' }}>
+                    关于 Than Studio
                   </h2>
-                  <div className="w-20 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full mb-8"></div>
+                  <div className="w-20 h-1 bg-gray-300 mb-8"></div>
                 </div>
                 
-                <div className="space-y-6">
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                <div className="space-y-8">
+                  <p className="text-lg text-gray-600 leading-relaxed font-light">
                     Than Studio 最早成立于2025年，是一家位于深圳的设计工作室。我们专注于品牌形象、空间设计、产品设计和视觉设计等领域，为客户提供全方位的设计解决方案。
                   </p>
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                  <p className="text-lg text-gray-600 leading-relaxed font-light">
                     我们的设计理念源于对中华传统美学的理解和现代设计语言的融合，追求简约而不简单的设计表达，注重细节和用户体验。
                   </p>
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                  <p className="text-lg text-gray-600 leading-relaxed font-light">
                     Than Studio 团队由来自不同文化背景的设计师组成，这使我们能够从多元视角思考问题，为客户创造独特而有价值的设计作品。
                   </p>
                 </div>
                 
                 {/* 特色亮点 */}
-                <div className="grid grid-cols-2 gap-6 mt-12">
-                  <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-                    <div className="text-3xl font-bold text-indigo-600 mb-2">9+</div>
-                    <div className="text-gray-600">年专业经验</div>
+                <div className="grid grid-cols-2 gap-8 pt-12 border-t border-gray-300">
+                  <div className="text-center">
+                    <div className="text-3xl font-light mb-3" style={{ color: '#A0BCC8' }}>9+</div>
+                    <div className="text-gray-600 font-light text-sm">年专业经验</div>
                   </div>
-                  <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">10+</div>
-                    <div className="text-gray-600">成功案例</div>
+                  <div className="text-center">
+                    <div className="text-3xl font-light mb-3" style={{ color: '#A0BCC8' }}>10+</div>
+                    <div className="text-gray-600 font-light text-sm">成功案例</div>
                   </div>
                 </div>
               </div>
               
-              <div className={`relative transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}>
+              <div className="relative">
                 <div className="relative">
                   <div 
-                    className="w-full aspect-[4/3] rounded-2xl shadow-2xl overflow-hidden"
+                    className="w-full aspect-[4/3] overflow-hidden"
                     style={{
                       background: `url(${basePath}/images/story-2.png)`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
+                      filter: 'grayscale(20%)'
                     }}
                   ></div>
-                  {/* 装饰元素 */}
-                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-full opacity-20"></div>
-                  <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-purple-400 to-pink-400 rounded-full opacity-15"></div>
                 </div>
               </div>
             </div>
@@ -264,89 +264,53 @@ export default function Story() {
         </div>
       </section>
 
-      {/* 发展历程 - 现代化设计 */}
+      {/* 发展历程 - 日系简约设计 */}
       <section 
-        className={`py-16 bg-gradient-to-b from-gray-50 to-white ${activeTab !== '发展历程' ? 'hidden' : ''}`}
+        className={`py-32 ${activeTab !== '发展历程' ? 'hidden' : ''}`}
         id="发展历程"
+        style={{ backgroundColor: '#F9F9F9' }}
       >
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-              <h2 className="text-4xl sm:text-5xl font-light mb-6">
-                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                  发展历程
-                </span>
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className={`text-center mb-20 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+              <h2 className="text-4xl font-light text-gray-800 mb-8" style={{ letterSpacing: '2px' }}>
+                发展历程
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
                 从初创到成长，每一步都见证着我们的专业与创新
               </p>
-              <div className="w-24 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 mx-auto rounded-full mt-6"></div>
+              <div className="w-20 h-1 bg-gray-300 mx-auto mt-8"></div>
             </div>
             
-            {/* 现代化时间线 */}
+            {/* 日系简约时间线 */}
             <div className="relative">
-              {/* 桌面端时间线 */}
-              <div className="hidden lg:block">
-                <div className="relative">
-                  {/* 主时间线 */}
-                  <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-indigo-200 via-purple-200 to-indigo-200 transform -translate-y-1/2 rounded-full"></div>
-                  
-                  <div className="grid grid-cols-5 gap-8">
-                    {[
-                      { year: '01', title: '工作室成立', desc: '在深圳成立Than Studio，开启设计之旅', color: 'from-blue-500 to-indigo-500' },
-                      { year: '03', title: '团队扩张', desc: '团队成员增至10人，业务快速发展', color: 'from-indigo-500 to-purple-500' },
-                      { year: '04', title: '业务拓展', desc: '开始国际项目合作，服务全球客户', color: 'from-purple-500 to-pink-500' },
-                      { year: '05', title: '获得认可', desc: '荣获多项设计大奖，行业地位确立', color: 'from-pink-500 to-red-500' },
-                      { year: '06', title: '持续创新', desc: '探索新设计领域，引领行业发展', color: 'from-red-500 to-orange-500' }
-                    ].map((item, index) => (
-                      <div key={index} className={`relative flex flex-col items-center transform transition-all duration-1000 delay-${index * 200} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-                        {/* 时间点 */}
-                        <div className={`w-6 h-6 bg-gradient-to-r ${item.color} rounded-full mb-6 relative z-10 shadow-lg ring-4 ring-white`}></div>
-                        
-                        {/* 内容卡片 */}
-                        <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                          <div className={`text-2xl font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent mb-3`}>
-                            {item.year}
-                          </div>
-                          <div className="text-lg font-semibold text-gray-800 mb-2">{item.title}</div>
-                          <div className="text-sm text-gray-600 leading-relaxed">{item.desc}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              {/* 时间线 */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gray-300"></div>
               
-              {/* 移动端时间线 */}
-              <div className="lg:hidden">
-                <div className="relative">
-                  {/* 垂直线 */}
-                  <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-200 via-purple-200 to-indigo-200 rounded-full"></div>
-                  
-                  <div className="space-y-12">
-                    {[
-                      { year: '2018', title: '工作室成立', desc: '在东京成立Than Studio，开启设计之旅', color: 'from-blue-500 to-indigo-500' },
-                      { year: '2019', title: '团队扩张', desc: '团队成员增至10人，业务快速发展', color: 'from-indigo-500 to-purple-500' },
-                      { year: '2020', title: '业务拓展', desc: '开始国际项目合作，服务全球客户', color: 'from-purple-500 to-pink-500' },
-                      { year: '2021', title: '获得认可', desc: '荣获多项设计大奖，行业地位确立', color: 'from-pink-500 to-red-500' },
-                      { year: '2023', title: '持续创新', desc: '探索新设计领域，引领行业发展', color: 'from-red-500 to-orange-500' }
-                    ].map((item, index) => (
-                      <div key={index} className={`relative flex items-start transform transition-all duration-1000 delay-${index * 200} ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}>
-                        {/* 时间点 */}
-                        <div className={`w-6 h-6 bg-gradient-to-r ${item.color} rounded-full relative z-10 shadow-lg ring-4 ring-white flex-shrink-0`}></div>
-                        
-                        {/* 内容卡片 */}
-                        <div className="ml-8 bg-white rounded-xl p-6 shadow-lg border border-gray-100 flex-1">
-                          <div className={`text-xl font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent mb-2`}>
-                            {item.year}
-                          </div>
-                          <div className="text-lg font-semibold text-gray-800 mb-2">{item.title}</div>
-                          <div className="text-sm text-gray-600 leading-relaxed">{item.desc}</div>
+              <div className="space-y-20">
+                {[
+                  { year: '2019', title: '工作室成立', desc: '在深圳成立Than Studio，开启设计之旅' },
+                  { year: '2020', title: '团队扩张', desc: '团队成员增至10人，业务快速发展' },
+                  { year: '2021', title: '业务拓展', desc: '开始国际项目合作，服务全球客户' },
+                  { year: '2022', title: '获得认可', desc: '荣获多项设计大奖，行业地位确立' },
+                  { year: '2023', title: '持续创新', desc: '探索新设计领域，引领行业发展' }
+                ].map((item, index) => (
+                  <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'} transform transition-all duration-1000 delay-${index * 200} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+                    {/* 时间点 */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full border-2 border-white shadow-sm z-10" style={{ backgroundColor: '#A0BCC8' }}></div>
+                    
+                    {/* 内容卡片 */}
+                    <div className={`w-5/12 ${index % 2 === 0 ? 'pr-12' : 'pl-12'}`}>
+                      <div className="bg-white p-8 border border-gray-200">
+                        <div className="text-2xl font-light mb-3" style={{ color: '#A0BCC8' }}>
+                          {item.year}
                         </div>
+                        <h3 className="text-xl font-light text-gray-800 mb-4">{item.title}</h3>
+                        <p className="text-gray-600 leading-relaxed font-light">{item.desc}</p>
                       </div>
-                    ))}
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -398,65 +362,78 @@ export default function Story() {
         </div>
       </section>
 
-      {/* 团队文化 - 调整为自适应栅格和等比例图片 */}
+      {/* 团队文化 - 日系简约设计 */}
       <section 
-        className={`py-10 sm:py-16 md:py-20 bg-gray-50 ${activeTab !== '团队文化' ? 'hidden' : ''}`}
+        className={`py-32 ${activeTab !== '团队文化' ? 'hidden' : ''}`}
         id="团队文化"
+        style={{ backgroundColor: '#F9F9F9' }}
       >
-        <div className="container mx-auto px-4">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">团队文化</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-12">
-            <div className="bg-white p-5 md:p-6 shadow-sm rounded-lg hover:shadow-md transition-all duration-300">
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">共同创造</h3>
-              <p className="text-gray-600 mb-0 text-sm md:text-base">我们鼓励团队成员之间的合作与交流，相信集体的智慧和创造力能够产生更优秀的设计作品。每个项目都是团队共同努力的成果。</p>
-            </div>
-            <div className="bg-white p-5 md:p-6 shadow-sm rounded-lg hover:shadow-md transition-all duration-300">
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">追求卓越</h3>
-              <p className="text-gray-600 mb-0 text-sm md:text-base">我们对设计品质有着极高的要求，不断挑战自我，精益求精，追求每一个细节的完美，为客户提供最优质的设计服务。</p>
-            </div>
-            <div className="bg-white p-5 md:p-6 shadow-sm rounded-lg hover:shadow-md transition-all duration-300">
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">开放创新</h3>
-              <p className="text-gray-600 mb-0 text-sm md:text-base">我们保持开放的心态，欢迎新的想法和观点，鼓励团队成员勇于尝试新的设计方法和技术，推动设计创新。</p>
-            </div>
-            <div className="bg-white p-5 md:p-6 shadow-sm rounded-lg hover:shadow-md transition-all duration-300">
-              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">尊重多元</h3>
-              <p className="text-gray-600 mb-0 text-sm md:text-base">我们尊重每个人的独特性和创造力，鼓励多元化的思维和表达方式，相信多样性能够带来更丰富的设计灵感和创意。</p>
-            </div>
+        <div className="container mx-auto px-6">
+          <div className={`text-center mb-20 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            <h2 className="text-4xl font-light text-gray-800 mb-8" style={{ letterSpacing: '2px' }}>
+              团队文化
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
+              我们的文化价值观塑造着我们的工作方式和设计理念
+            </p>
+            <div className="w-20 h-1 bg-gray-300 mx-auto mt-8"></div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
-            <div className="aspect-square overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-              <div 
-                className="w-full h-full bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                style={{
-                  backgroundImage: `url(${basePath}/images/story-3.png)`,
-                }}
-              ></div>
-            </div>
-            <div className="aspect-square overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-              <div 
-                className="w-full h-full bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                style={{
-                  backgroundImage: `url(${basePath}/images/story-4.png)`,
-                }}
-              ></div>
-            </div>
-            <div className="aspect-square overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-              <div 
-                className="w-full h-full bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                style={{
-                  backgroundImage: `url(${basePath}/images/story-5.png)`,
-                }}
-              ></div>
-            </div>
-            <div className="aspect-square overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-              <div 
-                className="w-full h-full bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                style={{
-                  backgroundImage: `url(${basePath}/images/story-6.png)`,
-                }}
-              ></div>
-            </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+            {[
+              { title: '创新思维', desc: '勇于探索新的设计可能性，突破传统界限' },
+              { title: '用户至上', desc: '始终以用户需求为中心，创造有价值的体验' },
+              { title: '团队协作', desc: '相信集体智慧，通过协作实现更大价值' },
+              { title: '持续学习', desc: '保持好奇心，不断学习和成长' }
+            ].map((item, index) => (
+              <div key={index} className={`bg-white p-8 border border-gray-200 transform transition-all duration-1000 delay-${index * 100} ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+                <div className="w-8 h-8 mb-6 flex items-center justify-center" style={{ backgroundColor: '#A0BCC8' }}>
+                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <h3 className="text-xl font-light text-gray-800 mb-4">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed font-light">{item.desc}</p>
+              </div>
+            ))}
           </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+             <div className="aspect-square overflow-hidden">
+               <div 
+                 className="w-full h-full bg-cover bg-center"
+                 style={{
+                   backgroundImage: `url(${basePath}/images/story-3.png)`,
+                   filter: 'grayscale(30%)'
+                 }}
+               ></div>
+             </div>
+             <div className="aspect-square overflow-hidden">
+               <div 
+                 className="w-full h-full bg-cover bg-center"
+                 style={{
+                   backgroundImage: `url(${basePath}/images/story-4.png)`,
+                   filter: 'grayscale(30%)'
+                 }}
+               ></div>
+             </div>
+             <div className="aspect-square overflow-hidden">
+               <div 
+                 className="w-full h-full bg-cover bg-center"
+                 style={{
+                   backgroundImage: `url(${basePath}/images/story-5.png)`,
+                   filter: 'grayscale(30%)'
+                 }}
+               ></div>
+             </div>
+             <div className="aspect-square overflow-hidden">
+               <div 
+                 className="w-full h-full bg-cover bg-center"
+                 style={{
+                   backgroundImage: `url(${basePath}/images/story-6.png)`,
+                   filter: 'grayscale(30%)'
+                 }}
+               ></div>
+             </div>
+           </div>
         </div>
       </section>
       </div>

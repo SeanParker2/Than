@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import PageLoader from './PageLoader';
 
 type LayoutProps = {
@@ -27,8 +28,17 @@ const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
       <PageLoader pageLoading={pageLoading} />
       <header className="fixed top-0 left-0 w-full h-20 bg-white bg-opacity-90 backdrop-blur-md z-[9999] shadow-sm transition-all duration-300">
         <div className="container mx-auto px-4 h-full flex items-center justify-between">
-          <div className="text-xl font-bold">
-            <Link href="/">Than Studio</Link>
+          <div className="flex items-center">
+            <Link href="/" className="flex items-center">
+              <Image
+              src="/logo/logo.png"
+              alt="Than Studio"
+              width={56}
+              height={20}
+              className="h-5 w-auto"
+              priority
+            />
+            </Link>
           </div>
           
           {/* 移动端汉堡菜单按钮 */}

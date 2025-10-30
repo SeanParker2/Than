@@ -48,7 +48,7 @@ export default function Document() {
               "alternateName": "Than Design Studio",
               "description": "专业设计工作室，提供品牌设计、UI/UX设计、产品设计等服务",
               "url": "https://seanparker2.github.io/Than/",
-              "logo": "https://seanparker2.github.io/Than/logo/than-studio-logo.svg",
+              "logo": "https://seanparker2.github.io/Than/logo/logo.png",
               "image": "https://seanparker2.github.io/Than/images/home_hero_banner.png",
               "foundingDate": "2019",
               "contactPoint": {

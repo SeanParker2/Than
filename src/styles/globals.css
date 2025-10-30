@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
-  --primary-color: #000000;
+  --foreground-rgb: 51, 51, 51;
+  --background-rgb: 249, 249, 249;
+  --primary-color: #333333;
+  --accent-color: #A0BCC8;
   --loader-size: 80px;
   
   /* 移动端优化变量 */
@@ -99,9 +100,41 @@
   }
 }
 
+* {
+  font-family: "PingFang SC", "Noto Sans SC", sans-serif;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+}
+
+/* 全局段落行高设置 */
+p {
+  line-height: 1.7;
+}
+
+/* 全局链接和按钮样式 - 使用新的点缀色 */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #8AA8B5;
+  text-decoration: none;
+}
+
+button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #8AA8B5;
 }
 
 /* 页面加载动画样式 - 新版创意设计 */
