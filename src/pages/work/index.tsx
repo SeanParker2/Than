@@ -272,12 +272,12 @@ export default function Work() {
                   }}
                   onMouseEnter={(e) => {
                     if (activeFilter !== filter.name) {
-                      e.target.style.color = '#A0BCC8';
+                      (e.target as HTMLButtonElement).style.color = '#A0BCC8';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (activeFilter !== filter.name) {
-                      e.target.style.color = '#333333';
+                      (e.target as HTMLButtonElement).style.color = '#333333';
                     }
                   }}
                 >
