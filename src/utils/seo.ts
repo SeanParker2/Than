@@ -33,7 +33,7 @@ export const pageSEO = {
     description: '浏览Than Studio的精选设计作品，包括品牌设计、UI/UX设计、产品设计等多个领域的创意项目。',
     keywords: 'Than Studio, 作品展示, 设计作品, 品牌设计案例, UI设计案例, UX设计案例, 产品设计案例',
     canonical: 'https://seanparker2.github.io/Than/work/',
-    ogImage: 'https://seanparker2.github.io/Than/images/work_hero_banner.png'
+    ogImage: 'https://seanparker2.github.io/Than/images/home_work_1.png'
   },
   story: {
     title: '关于我们 - Than Studio | 专业设计工作室的故事与发展历程',
@@ -47,14 +47,14 @@ export const pageSEO = {
     description: '联系Than Studio获取专业的设计服务。我们提供品牌设计、UI/UX设计、产品设计等全方位的设计解决方案。',
     keywords: 'Than Studio, 联系我们, 设计服务, 品牌设计, UI设计, UX设计, 产品设计, 深圳设计公司',
     canonical: 'https://seanparker2.github.io/Than/contact/',
-    ogImage: 'https://seanparker2.github.io/Than/images/contact_hero_banner.png'
+    ogImage: 'https://seanparker2.github.io/Than/images/contact_banner.png'
   },
   store: {
     title: '设计商店 - Than Studio | 创意设计产品与服务',
     description: '探索Than Studio的设计商店，发现独特的创意设计产品和专业设计服务。',
     keywords: 'Than Studio, 设计商店, 创意产品, 设计服务, 品牌设计, UI设计, UX设计, 产品设计',
     canonical: 'https://seanparker2.github.io/Than/store/',
-    ogImage: 'https://seanparker2.github.io/Than/images/store_hero_banner.png'
+    ogImage: 'https://seanparker2.github.io/Than/images/store.png'
   }
 };
 

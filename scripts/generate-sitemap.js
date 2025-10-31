@@ -52,7 +52,7 @@ const images = [
     title: '关于Than Studio'
   },
   {
-    loc: `${SITE_URL}/images/work_hero_banner.png`,
+    loc: `${SITE_URL}/images/home_work_1.png`,
     caption: 'Than Studio 作品展示',
     title: '设计作品集'
   },
