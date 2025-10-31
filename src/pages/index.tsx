@@ -17,6 +17,52 @@ export default function Home() {
     setIsVisible(true);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // 作品数据定义
+  const workData = [
+    { 
+      id: 1, 
+      title: '识区 - 智能阅读应用设计', 
+      category: 'UI/UX设计', 
+      description: '基于AI技术的智能阅读应用，通过智能推荐和个性化阅读体验，提升用户阅读效率', 
+      image: 'home_work_1.png'
+    },
+    { 
+      id: 2, 
+      title: '番茄作家助手 - 创作工具应用设计', 
+      category: 'UI/UX设计', 
+      description: '专业写作工具应用，为创作者提供高效的写作环境和创作辅助功能', 
+      image: 'home_work_2.png'
+    },
+    { 
+      id: 3, 
+      title: '字节内测系列 - 创新产品设计', 
+      category: '产品设计', 
+      description: '字节跳动内测产品的创新设计探索，涵盖多个前沿产品的设计实践', 
+      image: 'home_work_3.png'
+    },
+    { 
+      id: 4, 
+      title: '珠海城市形象 - 宣传品设计', 
+      category: '品牌设计', 
+      description: '珠海城市形象标识与宣传品设计，融入港珠澳大桥、渔女等珠海元素', 
+      image: 'home_work_4.png'
+    },
+    { 
+      id: 5, 
+      title: '深圳万象城 - 商业地产宣传设计', 
+      category: '品牌设计', 
+      description: '深圳万象城商业地产项目的品牌形象与宣传物料设计', 
+      image: 'home_work_5.png'
+    },
+    { 
+      id: 6, 
+      title: '创新科技产品 - 界面设计', 
+      category: 'UI/UX设计', 
+      description: '前沿科技产品的用户界面设计，注重用户体验与视觉美感的平衡', 
+      image: 'home_work_6.png'
+    }
+  ];
   
   return (
     <>
@@ -55,109 +101,145 @@ export default function Home() {
         />
       </Head>
       {/* Hero Banner - 日系简约风格 */}
-      <section className="relative w-full h-screen overflow-hidden">
-        {/* 背景图片 */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${basePath}/images/home_hero_banner.png)`,
-          }}
-        >
-          {/* 半透明遮罩 */}
-          <div className="absolute inset-0 bg-white bg-opacity-20"></div>
-        </div>
-        
-
-      </section>
-
-      {/* 品牌简介 - 日系简约设计 */}
-      <section className="py-40 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            {/* 标题区域 */}
-            <div className="text-center mb-28">
-              <h2 className="text-3xl sm:text-4xl font-light mb-8 text-gray-800">
-                关于 Than Studio
-              </h2>
-              <p className="text-lg text-gray-600 max-w-lg mx-auto leading-relaxed">
-                Than Studio 是一家位于深圳的设计工作室
-                <br />
-                专注于品牌形象、空间设计和视觉创意
+      <section className="relative w-full min-h-screen flex items-center py-20" style={{ backgroundColor: '#F9F9F9' }}>
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <h1 className="h1-title text-5xl sm:text-6xl lg:text-7xl font-light mb-12 text-gray-800 leading-tight">
+              Than Studio
+            </h1>
+            <div className="mb-16">
+              <p className="text-xl sm:text-2xl text-gray-600 font-light leading-relaxed mb-8">
+                专业设计工作室
+              </p>
+              <p className="text-lg text-gray-500 font-light leading-relaxed max-w-2xl">
+                专注于品牌形象、空间设计和视觉创意<br />
+                追求永恒的设计价值
               </p>
             </div>
-            
-            {/* 服务卡片 */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
-              <div className="text-center">
-                <h3 className="text-xl font-light mb-6 text-gray-800">品牌设计</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  为企业打造独特的品牌形象，从logo设计到完整的视觉识别系统
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <h3 className="text-xl font-light mb-6 text-gray-800">空间设计</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  创造富有美感和功能性的空间环境，提升用户体验
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <h3 className="text-xl font-light mb-6 text-gray-800">视觉创意</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  运用创新的视觉语言，传达品牌理念和价值观
-                </p>
-              </div>
-            </div>
-            
-            {/* 底部装饰文字 */}
-            <div className="text-center mt-16">
-              <p className="text-sm text-gray-400 italic">
-                "我们将东方美学与现代设计语言融合，为客户创造具有持久价值的设计作品"
-              </p>
-            </div>
+            <Link href="/work" className="inline-block text-gray-800 font-light text-lg border-b border-gray-300 hover:border-gray-800 transition-colors duration-300 pb-1">
+              查看作品
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 精选作品 - 日系简约设计 */}
-      <section className="py-40 bg-gray-50">
-        <div className="container mx-auto px-4">
+      {/* 关于 Than Studio - 日系简约设计 */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-6 lg:px-8 text-center">
+          <h1 className="h1-title text-4xl sm:text-5xl lg:text-6xl font-light mb-8 text-gray-800 leading-tight">
+            Than Studio
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            专注于创造独特而有意义的设计体验，将创意与功能完美融合
+          </p>
+        </div>
+      </section>
+
+      {/* 关于Than Studio */}
+      <section className="py-20 lg:py-28" style={{ backgroundColor: '#F9F9F9' }}>
+        <div className="container mx-auto px-6 lg:px-8">
           {/* 标题区域 */}
-          <div className="text-center mb-28">
-            <h2 className="text-3xl sm:text-4xl font-light mb-8 text-gray-800">
+          <div className="mb-20">
+            <h2 className="text-3xl sm:text-4xl font-light mb-6 text-gray-800">
+              关于Than Studio
+            </h2>
+          </div>
+          
+          {/* 服务卡片 */}
+          <div className="three-column-icons grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            {[
+              {
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="#333" viewBox="0 0 24 24" strokeWidth="1.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="6"/>
+                    <circle cx="12" cy="12" r="2"/>
+                  </svg>
+                ),
+                title: '品牌形象',
+                description: '我们提供从品牌策略到视觉识别 (VI) 的完整服务，帮助客户建立独特、清晰且有力的品牌形象。'
+              },
+              {
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="#333" viewBox="0 0 24 24" strokeWidth="1.5">
+                    <path d="m12 19 7-7 3 3-7 7-3-3z"/>
+                    <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                    <path d="m2 2 7.586 7.586"/>
+                    <circle cx="11" cy="11" r="2"/>
+                  </svg>
+                ),
+                title: '视觉设计',
+                description: '我们专注于高品质的视觉传达。无论是线上界面 (UI/UX) 还是线下物料，我们都致力于通过卓越的设计提升品牌价值。'
+              },
+              {
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="#333" viewBox="0 0 24 24" strokeWidth="1.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                ),
+                title: '空间创意',
+                description: '我们将品牌理念延伸至物理空间。通过展览、零售或办公环境的创意设计，我们为用户打造沉浸式的品牌体验。'
+              }
+            ].map((service, index) => (
+              <div key={index} className="text-center group">
+                <div className="w-16 h-16 mx-auto mb-6 bg-gray-50 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-gray-100 group-hover:scale-110">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-medium mb-3 text-gray-800">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+          
+          {/* 装饰性文字 */}
+          <div className="text-center mt-16">
+            <p className="text-sm text-gray-400 font-light tracking-widest uppercase">
+              Design • Create • Inspire
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 精选作品 */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="container mx-auto px-6 lg:px-8">
+          {/* 标题区域 */}
+          <div className="mb-20">
+            <h2 className="text-3xl sm:text-4xl font-light mb-6 text-gray-800">
               精选作品
             </h2>
-            <p className="text-lg text-gray-600 max-w-lg mx-auto leading-relaxed">
-              探索我们的创意作品集
-            </p>
+            <div className="mb-8">
+              <p className="text-lg text-gray-600 leading-relaxed max-w-2xl">
+                探索我们的创意作品集，每个项目都承载着独特的故事与创新思维
+              </p>
+            </div>
           </div>
           
           {/* 作品网格 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-            {[
-              { id: 1, title: '识区 - 智能阅读应用设计', category: 'UI/UX设计', description: '基于AI技术的智能阅读应用' },
-              { id: 2, title: '番茄作家助手 - 创作工具应用设计', category: 'UI/UX设计', description: '专业写作工具应用' },
-              { id: 3, title: '字节内测系列 - 创新产品设计', category: '产品设计', description: '字节跳动内测产品的创新设计' },
-              { id: 4, title: '珠海城市形象 - 宣传品设计', category: '品牌设计', description: '珠海城市形象标识与宣传品' },
-              { id: 5, title: '深圳万象城 - 商业地产宣传设计', category: '品牌设计', description: '商业地产品牌形象与宣传物料' },
-              { id: 6, title: '坪山大剧院 - 文化建筑宣传设计', category: '品牌设计', description: '文化建筑品牌形象与宣传' }
-            ].map((work, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            {workData.slice(0, 6).map((work, index) => (
               <div key={work.id} className="group">
                 <Link href={`/work/${work.id}`} className="block">
                   <div className="transition-all duration-300 hover:opacity-80">
-                    {/* 作品图片 */}
-                    <div className="relative aspect-[4/3] overflow-hidden mb-6">
-                      <div 
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{
-                          backgroundImage: `url(${basePath}/images/home_work_${work.id}.png)`,
-                        }}
-                      ></div>
+                    {/* 图片区域 */}
+                    <div className="relative aspect-[4/3] overflow-hidden mb-4">
+                      <Image
+                        src={`${basePath}/images/${work.image}`}
+                        alt={work.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
                     </div>
                     
                     {/* 内容区域 */}
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       <div className="text-xs text-gray-500 uppercase tracking-wider">
                         {work.category}
                       </div>
@@ -175,7 +257,7 @@ export default function Home() {
           </div>
           
           {/* 查看更多按钮 */}
-          <div className="text-center mt-20">
+          <div className="text-center mt-12">
             <Link href="/work" className="inline-block text-gray-800 font-light text-lg border-b border-gray-300 hover:border-gray-800 transition-colors duration-300 pb-1">
               查看更多作品
             </Link>
@@ -184,20 +266,22 @@ export default function Home() {
       </section>
 
       {/* 最新动态 - 日系简约设计 */}
-      <section className="py-40 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 lg:py-28" style={{ backgroundColor: '#F9F9F9' }}>
+        <div className="container mx-auto px-6 lg:px-8">
           {/* 标题区域 */}
-          <div className="text-center mb-28">
-            <h2 className="text-3xl sm:text-4xl font-light mb-8 text-gray-800">
+          <div className="mb-20">
+            <h2 className="text-3xl sm:text-4xl font-light mb-6 text-gray-800">
               最新动态
             </h2>
-            <p className="text-lg text-gray-600 max-w-lg mx-auto leading-relaxed">
-              关注我们的最新动态
-            </p>
+            <div className="mb-8">
+              <p className="text-lg text-gray-600 leading-relaxed max-w-2xl">
+                关注我们的最新动态
+              </p>
+            </div>
           </div>
           
           {/* 动态网格 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 max-w-6xl mx-auto">
+          <div className="three-column-icons grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {[
               {
                 id: 1,
@@ -225,7 +309,7 @@ export default function Home() {
                 <Link href={`/news/${news.id}`} className="block">
                   <div className="transition-all duration-300 hover:opacity-80">
                     {/* 图片区域 */}
-                    <div className="relative aspect-[4/3] overflow-hidden mb-6">
+                    <div className="relative aspect-[4/3] overflow-hidden mb-4">
                       <div 
                         className="absolute inset-0 bg-cover bg-center"
                         style={{
@@ -235,7 +319,7 @@ export default function Home() {
                     </div>
                     
                     {/* 内容区域 */}
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <div className="text-xs text-gray-500 uppercase tracking-wider">
                           {news.category}
@@ -260,22 +344,22 @@ export default function Home() {
       </section>
 
       {/* 团队成员 - 日系简约设计 */}
-      <section className="py-40 bg-gray-50">
+      <section className="py-16" style={{ backgroundColor: '#F9F9F9' }}>
         <div className="container mx-auto px-4">
           {/* 标题区域 */}
-          <div className="text-center mb-24">
-            <div className="inline-block relative">
-              <h2 className="text-3xl sm:text-4xl font-light mb-8 text-gray-800">
-                团队成员
-              </h2>
+          <div className="mb-16">
+            <h2 className="text-3xl sm:text-4xl font-light mb-4 text-gray-800">
+              团队成员
+            </h2>
+            <div className="mb-8">
+              <p className="text-lg text-gray-600 leading-relaxed max-w-2xl">
+                汇聚创意精英，用专业与热情创造非凡设计
+              </p>
             </div>
-            <p className="text-lg text-gray-600 mt-8 max-w-lg mx-auto">
-              汇聚创意精英，用专业与热情创造非凡设计
-            </p>
           </div>
           
           {/* 团队网格 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
             {[
               { 
                 name: '小A', 
@@ -310,9 +394,9 @@ export default function Home() {
                 color: 'from-orange-500 to-red-500'
               }
             ].map((member, index) => (
-              <div key={index} className="group text-center">
+              <div key={index} className="group">
                 {/* 头像 */}
-                <div className="relative mx-auto w-32 h-32 mb-6">
+                <div className="relative w-32 h-32 mb-4">
                   <div 
                     className="w-full h-full bg-cover bg-center rounded-full transition-transform duration-300 group-hover:scale-105"
                     style={{
@@ -322,11 +406,11 @@ export default function Home() {
                 </div>
                 
                 {/* 基本信息 */}
-                <div className="px-4">
+                <div>
                   <h4 className="text-xl font-medium text-gray-800 mb-2">
                     {member.name}
                   </h4>
-                  <p className="text-gray-500 text-sm mb-4">
+                  <p className="text-gray-500 text-sm mb-3">
                     {member.role}
                   </p>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -338,19 +422,14 @@ export default function Home() {
           </div>
           
           {/* 加入我们 */}
-          <div className="text-center mt-16">
-            <div className="inline-block bg-gradient-to-r from-gray-50 to-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">加入我们的团队</h3>
-              <p className="text-gray-600 mb-6 max-w-md mx-auto">
-                我们正在寻找有才华的设计师加入我们的创意团队
-              </p>
-              <Link href="/careers" className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                <span>查看职位</span>
-                <div className="w-5 h-5 border border-white rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform">
-                  <span className="text-xs">→</span>
-                </div>
-              </Link>
-            </div>
+          <div className="mt-12">
+            <h3 className="text-2xl font-light text-gray-800 mb-4">加入我们的团队</h3>
+            <p className="text-gray-600 mb-6 max-w-2xl leading-relaxed">
+              我们正在寻找有才华的设计师加入我们的创意团队
+            </p>
+            <Link href="/careers" className="inline-block text-gray-800 font-light text-lg border-b border-gray-300 hover:border-gray-800 transition-colors duration-300 pb-1">
+              查看职位
+            </Link>
           </div>
         </div>
       </section>

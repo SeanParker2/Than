@@ -51,7 +51,7 @@ const newsData: { [key: number]: NewsDetail } = {
 
 ## 3. 可持续设计理念
 
-环保意识的提升推动了可持续设计的发展。设计师们开始考虑设计对环境的影响，从材料选择到生产工艺，每一个环节都体现着对地球的关爱。
+环保意识提升推动了可持续设计的发展。设计师们开始考虑设计对环境的影响，从材料选择到生产工艺，每一个环节都体现着对地球的关爱。
 
 ### 实践方向：
 - **生物降解材料**的广泛应用
@@ -98,7 +98,7 @@ AI技术的发展为设计师提供了强大的工具。2025年，AI不再是替
     content: `
 # 设计理念的深度解读："少即是多"的哲学思考
 
-在设计的世界里，"少即是多"（Less is More）这一理念如同北极星般指引着无数设计师的创作方向。这句由建筑大师密斯·凡·德·罗提出的名言，不仅仅是一种美学观点，更是一种深刻的设计哲学，它要求我们在简约中寻找本质，在克制中展现力量。
+在设计的世界里，"少即是多"（Less is More）这一理念如同北极星般指引着无数设计师的创作方向。这句由建筑大师密斯·凡·德·罗提出的名言，不仅仅是一种美学观点，更是一种深刻的的设计哲学，它要求我们在简约中寻找本质，在克制中展现力量。
 
 ## 理念的起源与发展
 
@@ -168,7 +168,7 @@ AI技术的发展为设计师提供了强大的工具。2025年，AI不再是替
 **解决方案：**
 - 研究目标市场的文化背景
 - 适当调整设计语言
-- 保持核心理念的一致性
+- 保持核理念的一致性
 
 ## 未来的发展趋势
 
@@ -208,9 +208,9 @@ AI技术的发展为设计师提供了强大的工具。2025年，AI不再是替
     content: `
 # 可持续设计的未来趋势：环保与美学的和谐统一
 
-在全球气候变化和环境危机日益严峻的今天，设计行业正面临着前所未有的责任与挑战。可持续设计不再是一个可有可无的选择，而是设计师必须承担的社会责任。它要求我们在创造美好视觉体验的同时，深度思考设计对环境的影响，探索人与自然和谐共生的设计之道。
+在全球气候变化和环境危机日益严峻的今天，设计行业正面临着一个责任与挑战。可持续设计不再是一个可有可无的选择，而是设计师必须承担的社会责任。它要求我们在创造美好视觉体验的同时，深度思考设计对环境的影响，探索人与自然和谐共生的设计之道。
 
-## 可持续设计的核心理念
+## 可持续设计的核理念
 
 可持续设计是一种全新的设计思维模式，它将环境保护、社会责任和经济效益有机结合，追求设计的长期价值而非短期效应。
 
@@ -479,8 +479,8 @@ export default function NewsDetail() {
   if (isLoading) {
     return (
       <>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <div className="animate-spin rounded-full h-8 w-8 border-2 border-gray-300 border-t-gray-600"></div>
         </div>
       </>
     );
@@ -489,11 +489,11 @@ export default function NewsDetail() {
   if (!news) {
     return (
       <>
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">动态未找到</h1>
-            <p className="text-gray-600 mb-8">抱歉，您查找的动态不存在。</p>
-            <Link href="/" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            <h1 className="text-2xl font-light text-gray-700 mb-4">动态未找到</h1>
+            <p className="text-gray-500 mb-8 font-light">抱歉，您查找的动态不存在。</p>
+            <Link href="/" className="inline-block px-6 py-2 bg-gray-800 text-white font-light rounded hover:bg-gray-700 transition-colors">
               返回首页
             </Link>
           </div>
@@ -506,30 +506,30 @@ export default function NewsDetail() {
   const renderContent = (content: string) => {
     return content.split('\n').map((line, index) => {
       if (line.startsWith('# ')) {
-        return <h1 key={index} className="text-3xl font-bold text-gray-800 mb-6 mt-8">{line.substring(2)}</h1>;
+        return <h1 key={index} className="text-2xl font-light text-gray-800 mb-8 mt-12 border-b border-gray-100 pb-4">{line.substring(2)}</h1>;
       } else if (line.startsWith('## ')) {
-        return <h2 key={index} className="text-2xl font-bold text-gray-800 mb-4 mt-6">{line.substring(3)}</h2>;
+        return <h2 key={index} className="text-xl font-light text-gray-800 mb-6 mt-10">{line.substring(3)}</h2>;
       } else if (line.startsWith('### ')) {
-        return <h3 key={index} className="text-xl font-semibold text-gray-800 mb-3 mt-4">{line.substring(4)}</h3>;
+        return <h3 key={index} className="text-lg font-light text-gray-700 mb-4 mt-8">{line.substring(4)}</h3>;
       } else if (line.startsWith('#### ')) {
-        return <h4 key={index} className="text-lg font-semibold text-gray-800 mb-2 mt-3">{line.substring(5)}</h4>;
+        return <h4 key={index} className="text-base font-light text-gray-700 mb-3 mt-6">{line.substring(5)}</h4>;
       } else if (line.startsWith('- ')) {
-        return <li key={index} className="text-gray-600 mb-1 ml-4">{line.substring(2)}</li>;
+        return <li key={index} className="text-gray-600 mb-2 ml-4 font-light">{line.substring(2)}</li>;
       } else if (line.startsWith('> ')) {
-        return <blockquote key={index} className="border-l-4 border-blue-500 pl-4 italic text-gray-600 my-4">{line.substring(2)}</blockquote>;
+        return <blockquote key={index} className="border-l-2 border-gray-200 pl-6 italic text-gray-600 my-6 font-light">{line.substring(2)}</blockquote>;
       } else if (line.includes('**') && line.includes('**')) {
         const parts = line.split('**');
         return (
-          <p key={index} className="text-gray-600 leading-relaxed mb-4">
+          <p key={index} className="text-gray-600 leading-relaxed mb-6 font-light">
             {parts.map((part, i) => 
-              i % 2 === 1 ? <strong key={i} className="font-semibold text-gray-800">{part}</strong> : part
+              i % 2 === 1 ? <strong key={i} className="font-medium text-gray-800">{part}</strong> : part
             )}
           </p>
         );
       } else if (line.trim() === '') {
         return <br key={index} />;
       } else {
-        return <p key={index} className="text-gray-600 leading-relaxed mb-4">{line}</p>;
+        return <p key={index} className="text-gray-600 leading-relaxed mb-6 font-light">{line}</p>;
       }
     });
   };
@@ -538,60 +538,60 @@ export default function NewsDetail() {
     <>
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative py-20 sm:py-24 md:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        <section className="relative py-16 sm:py-20 md:py-24 bg-gray-50 overflow-hidden">
           <div className="absolute inset-0">
-            <div className={`absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l ${news.color} opacity-10 rounded-full transform translate-x-1/2`}></div>
-            <div className={`absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-r ${news.color} opacity-10 rounded-full transform -translate-x-1/2`}></div>
+            <div className="absolute top-1/3 right-0 w-64 h-64 bg-gray-100 opacity-30 rounded-full transform translate-x-1/3"></div>
+            <div className="absolute bottom-1/3 left-0 w-64 h-64 bg-gray-100 opacity-30 rounded-full transform -translate-x-1/3"></div>
           </div>
           
           <div className="container mx-auto px-4 relative z-10">
             {/* 面包屑导航 */}
-            <nav className="mb-8">
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <Link href="/" className="hover:text-blue-600 transition-colors">首页</Link>
+            <nav className="mb-12">
+              <div className="flex items-center space-x-2 text-sm text-gray-500 font-light">
+                <Link href="/" className="hover:text-gray-700 transition-colors">首页</Link>
                 <span>/</span>
-                <span className="text-gray-800">最新动态</span>
+                <span className="text-gray-600">最新动态</span>
                 <span>/</span>
-                <span className="text-gray-800">{news.title}</span>
+                <span className="text-gray-700">{news.title}</span>
               </div>
             </nav>
 
             <div className="max-w-4xl mx-auto">
               {/* 文章头部 */}
-              <div className="text-center mb-12">
-                <div className="mb-6">
-                  <span className={`inline-block px-4 py-2 bg-gradient-to-r ${news.color} text-white text-sm font-medium rounded-full mb-4`}>
+              <div className="text-center mb-16">
+                <div className="mb-8">
+                  <span className="inline-block px-4 py-1 bg-gray-100 text-gray-700 text-sm font-light rounded-full">
                     {news.category}
                   </span>
                 </div>
                 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-800 mb-8 leading-tight">
                   {news.title}
                 </h1>
                 
-                <p className="text-xl text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">
+                <p className="text-lg text-gray-600 leading-relaxed mb-12 max-w-3xl mx-auto font-light">
                   {news.excerpt}
                 </p>
                 
                 {/* 文章元信息 */}
-                <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500">
+                <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-500 font-light">
                   <div className="flex items-center gap-2">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     <span>{news.date}</span>
                   </div>
                   
                   <div className="flex items-center gap-2">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                     <span>{news.author}</span>
                   </div>
                   
                   <div className="flex items-center gap-2">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span>阅读时间 {news.readTime}</span>
                   </div>
@@ -599,84 +599,102 @@ export default function NewsDetail() {
               </div>
               
               {/* 封面图片 */}
-              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl mb-12">
+              <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-sm mb-16">
                 <img
                   src={`${basePath}/images/${news.coverImage}`}
                   alt={news.title}
                   className="w-full h-full object-cover"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${news.color} opacity-20`}></div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 文章内容 */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+
+
+        {/* 文章内容 - 优化排版 */}
+        <section className="pb-16">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl mx-auto">
               <div className="prose prose-lg max-w-none">
                 {renderContent(news.content)}
               </div>
-              
-              {/* 标签 */}
-              <div className="mt-12 pt-8 border-t border-gray-200">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">相关标签</h3>
+            </div>
+          </div>
+        </section>
+
+        {/* 标签 - 简化设计 */}
+        {news.tags && news.tags.length > 0 && (
+          <section className="pb-12 border-b border-gray-100">
+            <div className="container mx-auto px-6">
+              <div className="max-w-3xl mx-auto">
                 <div className="flex flex-wrap gap-2">
                   {news.tags.map((tag, index) => (
-                    <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition-colors">
+                    <span key={index} className="px-3 py-1 bg-gray-50 text-gray-700 text-sm font-light rounded-full border border-gray-100">
                       #{tag}
                     </span>
                   ))}
                 </div>
               </div>
-              
-              {/* 相关动态 */}
-              {news.relatedNews.length > 0 && (
-                <div className="mt-12 pt-8 border-t border-gray-200">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-6">相关动态</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {news.relatedNews.map((relatedId) => {
-                      const relatedNews = newsData[relatedId];
-                      if (!relatedNews) return null;
-                      
-                      return (
-                        <Link key={relatedId} href={`/news/${relatedId}`} className="group">
-                          <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                            <div className="flex items-start gap-4">
-                              <div className={`w-12 h-12 bg-gradient-to-r ${relatedNews.color} rounded-lg flex-shrink-0`}></div>
-                              <div>
-                                <span className="text-xs text-gray-500 uppercase tracking-wide">{relatedNews.category}</span>
-                                <h4 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors mb-2">
-                                  {relatedNews.title}
-                                </h4>
-                                <p className="text-gray-600 text-sm line-clamp-2">{relatedNews.excerpt}</p>
-                                <div className="flex items-center gap-4 mt-3 text-xs text-gray-500">
-                                  <span>{relatedNews.date}</span>
-                                  <span>{relatedNews.readTime}</span>
-                                </div>
-                              </div>
-                            </div>
+            </div>
+          </section>
+        )}
+
+
+
+        {/* 相关新闻 - 简化设计 */}
+        {news.relatedNews && news.relatedNews.length > 0 && (
+          <section className="py-16 bg-gray-50">
+            <div className="container mx-auto px-6">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-2xl font-light text-gray-900 mb-8 text-center">相关新闻</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 three-column-icons">
+                  {news.relatedNews.slice(0, 3).map((relatedId: number) => {
+                    const relatedItem = newsData[relatedId];
+                    if (!relatedItem) return null;
+                    
+                    return (
+                      <Link key={relatedItem.id} href={`/news/${relatedItem.id}`} className="group">
+                        <article className="bg-white rounded-lg overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+                          <div className="aspect-[16/9] overflow-hidden">
+                            <img
+                              src={`${basePath}/images/${relatedItem.coverImage}`}
+                              alt={relatedItem.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
                           </div>
-                        </Link>
-                      );
-                    })}
-                  </div>
+                          <div className="p-5">
+                            <div className="flex items-center gap-4 text-xs text-gray-500 font-light mb-2">
+                              <span>{relatedItem.date}</span>
+                              <span>{relatedItem.category}</span>
+                            </div>
+                            <h3 className="text-lg font-light text-gray-900 group-hover:text-gray-600 transition-colors line-clamp-2">
+                              {relatedItem.title}
+                            </h3>
+                          </div>
+                        </article>
+                      </Link>
+                    );
+                  })}
                 </div>
-              )}
-              
-              {/* 返回按钮 */}
-              <div className="mt-12 pt-8 border-t border-gray-200 text-center">
-                <Link href="/" className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-gray-900 to-black text-white font-medium rounded-full hover:from-black hover:to-gray-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                  <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                  <span>返回首页</span>
-                </Link>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+
+         {/* 返回按钮 - 简化设计 */}
+         <section className="py-12 bg-white">
+           <div className="container mx-auto px-6">
+             <div className="max-w-3xl mx-auto text-center">
+               <Link href="/news" className="group inline-flex items-center gap-3 px-8 py-4 bg-gray-900 text-white font-light rounded-full hover:bg-gray-800 transition-all duration-300">
+                 <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+                 </svg>
+                 <span>返回新闻列表</span>
+               </Link>
+             </div>
+           </div>
+         </section>
       </div>
     </>
   );

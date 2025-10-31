@@ -8,25 +8,18 @@ export default function Work() {
   const basePath = process.env.NODE_ENV === 'production' ? '/ThanLab' : '';
   const [activeFilter, setActiveFilter] = useState('全部作品');
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredWork, setHoveredWork] = useState<string | number | null>(null);
   const [scrollY, setScrollY] = useState<number>(0);
-  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const containerRef = useRef(null);
   
   useEffect(() => {
     setIsVisible(true);
     
     const handleScroll = () => setScrollY(window.scrollY);
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
     
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
   
@@ -197,28 +190,18 @@ export default function Work() {
         `}</style>
       </Head>
       
-      {/* 动态鼠标跟随光标 */}
-      <div 
-        className="fixed w-6 h-6 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100 ease-out"
-        style={{
-          left: mousePosition.x - 12,
-          top: mousePosition.y - 12,
-          transform: hoveredWork ? 'scale(3)' : 'scale(1)'
-        }}
-      />
-      
       <div className="min-h-screen bg-white text-gray-900 overflow-hidden" ref={containerRef}>
         {/* 英雄区域 - 日系简约设计 */}
-        <section className="relative w-full h-screen overflow-hidden flex items-center" style={{ backgroundColor: '#F9F9F9' }}>
+        <section className="relative w-full h-screen overflow-hidden flex items-center py-20" style={{ backgroundColor: '#F9F9F9' }}>
           
           {/* 主标题区域 - 左对齐设计 */}
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-8 lg:px-12 relative z-10">
             <div 
               className={`relative z-10 transform transition-all duration-2000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'}`}
               style={{ transform: `translateY(${scrollY * 0.2}px)` }}
             >
               {/* 主标题 - 日系简约风格 */}
-              <h1 className="text-7xl md:text-9xl lg:text-[10rem] font-light mb-12 leading-none text-gray-700" style={{
+              <h1 className="h1-title text-7xl md:text-9xl lg:text-[10rem] font-light mb-8 leading-none text-gray-700" style={{
                 fontFamily: '"PingFang SC", "Noto Sans SC", "Hiragino Sans GB", sans-serif',
                 fontWeight: 100,
                 letterSpacing: '3px'
@@ -227,7 +210,7 @@ export default function Work() {
               </h1>
               
               {/* 副标题区域 - 简洁版 */}
-              <div className="space-y-8 mb-32 max-w-4xl">
+              <div className="space-y-6 mb-16 max-w-4xl">
                 <div className="relative">
                   <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed" style={{ color: '#666666' }}>
                     创意无界，设计有道
@@ -243,10 +226,10 @@ export default function Work() {
         </section>
         
         {/* 作品筛选器 - 日系简约设计 */}
-        <section className="relative py-32 overflow-hidden" style={{ backgroundColor: '#F9F9F9' }}>
-          <div className="container mx-auto px-6 relative z-10">
+        <section className="relative py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: '#F9F9F9' }}>
+          <div className="container mx-auto px-8 lg:px-12 relative z-10">
             {/* 筛选器标题 */}
-            <div className="mb-20">
+            <div className="mb-16">
               <h2 className="text-3xl md:text-4xl font-light mb-6" style={{ color: '#333333' }}>
                 探索我们的作品
               </h2>
@@ -255,31 +238,17 @@ export default function Work() {
               </p>
             </div>
             
-            {/* 筛选器 - 纯文本链接样式 */}
-            <div className="flex flex-wrap gap-8 mb-32">
+            {/* 筛选器 - 优化设计 */}
+            <div className="works-filter-container flex md:flex-wrap md:justify-center gap-2 mb-12">
               {filters.map((filter) => (
                 <button
                   key={filter.name}
                   onClick={() => setActiveFilter(filter.name)}
-                  className={`relative px-2 py-1 text-lg font-light transition-all duration-300 ${
+                  className={`works-filter-tab relative px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 ${
                     activeFilter === filter.name
-                      ? 'border-b-2'
-                      : ''
+                      ? 'bg-gray-900 text-white shadow-lg'
+                      : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900 border border-gray-200'
                   }`}
-                  style={{
-                    color: activeFilter === filter.name ? '#A0BCC8' : '#333333',
-                    borderBottomColor: activeFilter === filter.name ? '#A0BCC8' : 'transparent'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (activeFilter !== filter.name) {
-                      (e.target as HTMLButtonElement).style.color = '#A0BCC8';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (activeFilter !== filter.name) {
-                      (e.target as HTMLButtonElement).style.color = '#333333';
-                    }
-                  }}
                 >
                   {filter.name}
                 </button>
@@ -287,10 +256,10 @@ export default function Work() {
             </div>
             
             {/* 当前筛选结果提示 - 简化版 */}
-            <div className="text-center">
-              <span className="text-sm" style={{ color: '#999999' }}>
-                显示 <span style={{ color: '#333333' }}>{filteredWorks.length}</span> 个
-                <span style={{ color: '#A0BCC8' }} className="mx-1">{activeFilter}</span>
+            <div className="text-center mb-8">
+              <span className="text-sm text-gray-500">
+                显示 <span className="text-gray-900 font-medium">{filteredWorks.length}</span> 个
+                <span className="text-gray-900 font-medium mx-1">{activeFilter}</span>
                 作品
               </span>
             </div>
@@ -298,13 +267,13 @@ export default function Work() {
         </section>
         
         {/* 作品展示区域 - 日系简约布局 */}
-        <section className="relative py-32 overflow-hidden" style={{ backgroundColor: '#F9F9F9' }}>
+        <section className="relative py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: '#F9F9F9' }}>
           
           <div className="container mx-auto px-6 relative z-10">
             {/* 作品展示 - 统一网格布局 */}
             <div className="max-w-7xl mx-auto">
               {/* 统一的网格布局 - 日系简约设计 */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              <div className="works-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {filteredWorks.map((work, index) => {
                   return (
                     <div
@@ -312,8 +281,6 @@ export default function Work() {
                       className={`group relative transition-all duration-300 ${
                         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
                       }`}
-                      onMouseEnter={() => setHoveredWork(work.id)}
-                      onMouseLeave={() => setHoveredWork(null)}
                     >
                       <Link href={`/work/${work.id}`}>
                         <div className="relative bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-gray-300 transition-all duration-300 cursor-pointer">
@@ -362,7 +329,7 @@ export default function Work() {
               </div>
               
               {/* 加载更多区域 */}
-              <div className="text-center mt-20">
+              <div className="text-center mt-12">
                 <button className="group relative px-12 py-4 bg-gradient-to-r from-white to-gray-50 rounded-full text-gray-700 font-semibold hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-500 hover:scale-105 hover:shadow-xl border border-gray-200 hover:border-transparent shadow-sm">
                   <span className="relative z-10 flex items-center gap-3">
                     <svg className="w-5 h-5 animate-spin group-hover:animate-none transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

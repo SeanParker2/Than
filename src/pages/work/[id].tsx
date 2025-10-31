@@ -30,7 +30,7 @@ const workData: { [key: number]: WorkDetail } = {
     year: '2024',
     services: ['UI/UX设计', '交互设计', '视觉设计', '用户体验优化', '信息架构设计', '原型制作'],
     challenge: '如何在信息爆炸的时代为用户提供真正有价值的内容，打破算法推荐造成的信息茧房，同时保持用户的阅读兴趣和参与度。传统的内容推荐算法容易形成信息茧房，用户接触到的信息越来越单一化。识区需要在保证内容质量的同时，设计出既能体现人工筛选价值，又能保持用户粘性的产品体验。',
-    solution: '我们设计了独特的"区长"机制界面，让人工筛选与智能推荐相结合。通过清晰的信息架构、直观的内容分类和个性化的阅读体验，帮助用户发现更广阔的知识世界。采用简洁现代的设计语言，突出内容本身的价值。创新性地引入了"视野拓展度"指标，让用户直观感受到自己阅读范围的扩展。界面设计注重内容的可读性和信息的层次感，确保用户能够高效获取有价值的信息。',
+    solution: '我们设计了独特的"区长"机制界面，让人工筛选与智能推荐相结合。通过清晰的信息架构、直观的内容分类和个性化的阅读体验，帮助用户发现更广阔knowledge_world知识世界。采用简洁现代的设计语言，突出内容本身的价值。创新性地引入了"视野拓展度"指标，让用户直观感受到自己阅读范围的扩展。界面设计注重内容的可读性和信息的层次感，确保用户能够高效获取有价值的信息。',
     result: '识区在内测阶段获得了用户的高度认可，用户平均阅读时长比传统资讯应用提升35%，内容多样性指数提高60%。应用的创新模式为字节跳动在内容分发领域开辟了新的发展方向。内测用户反馈显示，92%的用户认为识区帮助他们接触到了更多元化的内容，88%的用户表示阅读质量得到了显著提升。该项目为字节跳动探索算法之外的内容分发模式提供了重要参考。',
     images: ['work_1_1.jpeg', 'work_1_2.jpeg', 'work_1_3.jpeg', 'work_1_4.jpeg'],
     color: 'from-blue-500 to-cyan-500',
@@ -79,7 +79,7 @@ const workData: { [key: number]: WorkDetail } = {
     services: ['城市品牌策略', '视觉识别设计', '宣传品设计', '多媒体设计', '展示设计', '品牌应用设计'],
     challenge: '如何在众多城市品牌中突出珠海的独特性是最大的挑战。珠海需要在保持历史文化传承的同时，展现现代化国际都市的形象。设计需要平衡传统与现代、本土与国际、人文与科技等多重关系。同时，作为面向全球的城市形象，设计必须具备跨文化的传播力和感染力，能够让不同背景的受众都能理解和认同珠海的城市价值。此外，宣传品需要适用于不同的媒介和场景，从传统印刷品到数字媒体，从政务场合到商业推广。',
     solution: '我们以"海纳百川，珠联璧合"为设计理念，创造了融合现代与传统的视觉语言。设计中巧妙融入了港珠澳大桥的现代线条、珠海渔女的优美轮廓、以及珠海独特的海岛地貌。色彩系统选择了海洋蓝与珠光白的组合，既体现了珠海的海滨特色，又传达了城市的纯净与活力。在宣传品设计中，我们采用了模块化的设计系统，确保在不同应用场景下都能保持视觉的一致性和识别度。字体设计融入了海浪的流动感，图形元素提取了珠海地标建筑的几何特征。',
-    result: '珠海城市形象宣传品设计获得了政府和市民的高度认可，成功提升了珠海的城市知名度和美誉度。新的城市形象在各类国际展会和推介活动中得到广泛应用，有效提升了珠海在粤港澳大湾区的城市竞争力。设计作品在多个国际设计大赛中获奖，包括亚洲设计大奖和中国设计红星奖。通过统一的视觉形象，珠海在招商引资、旅游推广、文化交流等方面都取得了显著成效。该项目为珠海建设现代化国际化经济特区提供了强有力的品牌支撑。',
+    result: '珠海城市形象宣传品设计获得了政府机关的高度认可，成功提升了珠海的城市知名度和美誉度。新的城市形象在各类国际展会和推介活动中得到广泛应用，有效提升了珠海在粤港澳大湾区的城市竞争力。设计作品在多个国际设计大赛中获奖，包括亚洲设计大奖和中国设计红星奖。通过统一的视觉形象，珠海在招商引资、旅游推广、文化交流等方面都取得了显著成效。该项目为珠海建设现代化国际化经济特区提供了强有力的品牌支撑。',
     images: ['work_4_1.jpeg', 'work_4_2.jpeg', 'work_4_3.jpeg', 'work_4_4.jpeg'],
     color: 'from-blue-500 to-cyan-500',
     tags: ['城市品牌', '视觉识别', '宣传设计', '文化传承', '现代设计']
@@ -172,61 +172,67 @@ export default function WorkDetail() {
     setCurrentImageIndex((prev) => (prev - 1 + work.images.length) % work.images.length);
   };
 
+  // 获取其他作品（排除当前作品）
+  const otherWorks = Object.values(workData).filter(w => w.id !== work?.id);
+
   return (
     <>
       <div className="min-h-screen bg-white">
-        {/* Hero Section */}
-        <section className="relative py-20 sm:py-24 md:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        {/* Hero Section - 日系简约优化 */}
+        <section className="relative py-24 sm:py-32 md:py-40 bg-white overflow-hidden">
+          {/* 简化背景装饰 */}
           <div className="absolute inset-0">
-            <div className={`absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l ${work.color} opacity-10 rounded-full transform translate-x-1/2`}></div>
-            <div className={`absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-r ${work.color} opacity-10 rounded-full transform -translate-x-1/2`}></div>
+            <div className="absolute top-1/3 right-0 w-80 h-80 bg-gray-100 opacity-30 rounded-full transform translate-x-1/2"></div>
+            <div className="absolute bottom-1/3 left-0 w-80 h-80 bg-gray-100 opacity-30 rounded-full transform -translate-x-1/2"></div>
           </div>
           
-          <div className="container mx-auto px-4 relative z-10">
-            {/* 面包屑导航 */}
-            <nav className="mb-8">
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <Link href="/" className="hover:text-blue-600 transition-colors">首页</Link>
-                <span>/</span>
-                <Link href="/work" className="hover:text-blue-600 transition-colors">作品</Link>
-                <span>/</span>
+          <div className="container mx-auto px-6 relative z-10">
+            {/* 面包屑导航 - 简化样式 */}
+            <nav className="mb-12">
+              <div className="flex items-center space-x-3 text-sm text-gray-500 font-light">
+                <Link href="/" className="hover:text-gray-800 transition-colors">首页</Link>
+                <span className="text-gray-300">/</span>
+                <Link href="/work" className="hover:text-gray-800 transition-colors">作品</Link>
+                <span className="text-gray-300">/</span>
                 <span className="text-gray-800">{work.title}</span>
               </div>
             </nav>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* 左侧内容 */}
-              <div>
-                <div className="mb-6">
-                  <span className={`inline-block px-4 py-2 bg-gradient-to-r ${work.color} text-white text-sm font-medium rounded-full mb-4`}>
+            <div className="two-column-layout grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center max-w-7xl mx-auto">
+              {/* 左侧内容 - 优化排版 */}
+              <div className="space-y-6">
+                <div className="space-y-4">
+                  <div className="inline-block px-4 py-2 bg-gray-100 text-gray-700 text-sm font-light rounded-full">
                     {work.category}
-                  </span>
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+                  </div>
+                  
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-gray-900 leading-tight">
                     {work.title}
                   </h1>
-                  <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                  
+                  <p className="text-lg text-gray-600 leading-relaxed font-light max-w-lg">
                     {work.description}
                   </p>
                 </div>
 
-                {/* 项目信息 */}
-                <div className="grid grid-cols-2 gap-6 mb-8">
+                {/* 项目信息 - 简化设计 */}
+                <div className="grid grid-cols-2 gap-6 pt-6 border-t border-gray-100">
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">客户</h3>
-                    <p className="text-gray-800 font-medium">{work.client}</p>
+                    <div className="text-sm text-gray-500 font-light mb-1">客户</div>
+                    <div className="text-gray-900 font-light">{work.client}</div>
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">年份</h3>
-                    <p className="text-gray-800 font-medium">{work.year}</p>
+                    <div className="text-sm text-gray-500 font-light mb-1">年份</div>
+                    <div className="text-gray-900 font-light">{work.year}</div>
                   </div>
                 </div>
 
-                {/* 服务标签 */}
-                <div className="mb-8">
-                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">服务内容</h3>
+                {/* 服务标签 - 简化样式 */}
+                <div className="pt-4">
+                  <div className="text-sm text-gray-500 font-light mb-3">服务内容</div>
                   <div className="flex flex-wrap gap-2">
                     {work.services.map((service, index) => (
-                      <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+                      <span key={index} className="px-3 py-1 bg-gray-50 text-gray-700 text-sm font-light rounded-full border border-gray-100">
                         {service}
                       </span>
                     ))}
@@ -234,48 +240,57 @@ export default function WorkDetail() {
                 </div>
               </div>
 
-              {/* 右侧图片轮播 */}
+              {/* 右侧图片 - 简化展示 */}
               <div className="relative">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src={`${basePath}/images/${work.images[currentImageIndex]}`}
-                    alt={`${work.title} - 图片 ${currentImageIndex + 1}`}
-                    className="w-full h-full object-cover transition-opacity duration-500"
-                  />
-                  
-                  {/* 图片导航 */}
-                  {work.images.length > 1 && (
+                <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-gray-50">
+                  {work.images && work.images.length > 0 ? (
                     <>
-                      <button
-                        onClick={prevImage}
-                        className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"
-                      >
-                        <svg className="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                      </button>
-                      <button
-                        onClick={nextImage}
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"
-                      >
-                        <svg className="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
+                      <img
+                        src={`${basePath}/images/${work.images[currentImageIndex]}`}
+                        alt={work.title}
+                        className="w-full h-full object-cover"
+                      />
                       
-                      {/* 图片指示器 */}
-                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                        {work.images.map((_, index) => (
+                      {/* 简化的图片导航 */}
+                      {work.images.length > 1 && (
+                        <>
                           <button
-                            key={index}
-                            onClick={() => setCurrentImageIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-colors ${
-                              index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                            }`}
-                          />
-                        ))}
-                      </div>
+                            onClick={prevImage}
+                            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                          >
+                            <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+                            </svg>
+                          </button>
+                          
+                          <button
+                            onClick={nextImage}
+                            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                          >
+                            <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </button>
+                          
+                          {/* 简化的指示器 */}
+                          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            {work.images.map((_, index) => (
+                              <button
+                                key={index}
+                                onClick={() => setCurrentImageIndex(index)}
+                                className={`w-2 h-2 rounded-full transition-colors ${
+                                  index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        </>
+                      )}
                     </>
+                  ) : (
+                    <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                      <span className="text-gray-400 font-light">暂无图片</span>
+                    </div>
                   )}
                 </div>
               </div>
@@ -283,93 +298,92 @@ export default function WorkDetail() {
           </div>
         </section>
 
-        {/* 项目详情 */}
-        <section className="py-20 sm:py-24 md:py-32">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              {/* 项目概述 */}
+        {/* 项目详情 - 日系简约优化 */}
+        <section className="py-20 sm:py-24 bg-gray-50">
+          <div className="container mx-auto px-6">
+            <div className="max-w-5xl mx-auto">
+              {/* 项目概述 - 简化设计 */}
               <div className="mb-16">
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">项目概述</h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <h2 className="text-3xl font-light text-gray-900 mb-4">项目概述</h2>
+                <div className="w-16 h-px bg-gray-300 mb-6"></div>
+                <p className="text-lg text-gray-600 leading-relaxed font-light">
                   {work.fullDescription}
                 </p>
               </div>
 
-              {/* 挑战、解决方案、结果 */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div className="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-2xl">
-                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+              {/* 挑战、解决方案、结果 - 简化卡片设计 */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 three-column-icons">
+                <div className="bg-white p-6 rounded-lg border border-gray-100">
+                  <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">挑战</h3>
-                  <p className="text-gray-600 leading-relaxed">{work.challenge}</p>
+                  <h3 className="text-xl font-light text-gray-900 mb-3">挑战</h3>
+                  <p className="text-gray-600 leading-relaxed font-light">
+                    {work.challenge}
+                  </p>
                 </div>
 
-                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                <div className="bg-white p-6 rounded-lg border border-gray-100">
+                  <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">解决方案</h3>
-                  <p className="text-gray-600 leading-relaxed">{work.solution}</p>
+                  <h3 className="text-xl font-light text-gray-900 mb-3">解决方案</h3>
+                  <p className="text-gray-600 leading-relaxed font-light">
+                    {work.solution}
+                  </p>
                 </div>
 
-                <div className="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-2xl">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <div className="bg-white p-6 rounded-lg border border-gray-100">
+                  <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">结果</h3>
-                  <p className="text-gray-600 leading-relaxed">{work.result}</p>
+                  <h3 className="text-xl font-light text-gray-900 mb-3">结果</h3>
+                  <p className="text-gray-600 leading-relaxed font-light">
+                    {work.result}
+                  </p>
                 </div>
               </div>
 
-              {/* 标签 */}
-              <div className="mb-16">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">项目标签</h3>
-                <div className="flex flex-wrap gap-3">
-                  {work.tags.map((tag, index) => (
-                    <span key={index} className={`px-4 py-2 bg-gradient-to-r ${work.color} text-white rounded-full text-sm font-medium`}>
-                      {tag}
-                    </span>
+              {/* 其他作品推荐 - 简化设计 */}
+              <div className="pt-12 border-t border-gray-200">
+                <h3 className="text-2xl font-light text-gray-900 mb-6">其他作品</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {otherWorks.slice(0, 2).map((otherWork) => (
+                    <Link key={otherWork.id} href={`/work/${otherWork.id}`} className="group">
+                      <div className="bg-white rounded-lg overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+                        <div className="aspect-[4/3] overflow-hidden">
+                          <img
+                            src={`${basePath}/images/home_work_${otherWork.id}.png`}
+                            alt={otherWork.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                        <div className="p-5">
+                          <div className="text-sm text-gray-500 font-light mb-1">{otherWork.category}</div>
+                          <h4 className="text-lg font-light text-gray-900 group-hover:text-gray-600 transition-colors">
+                            {otherWork.title}
+                          </h4>
+                        </div>
+                      </div>
+                    </Link>
                   ))}
                 </div>
               </div>
 
-              {/* 导航到其他作品 */}
-              <div className="border-t border-gray-200 pt-16">
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-                  <Link href="/work" className="group flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors">
-                    <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                    <span>返回作品列表</span>
-                  </Link>
-                  
-                  <div className="flex gap-4">
-                    {work.id > 1 && (
-                      <Link href={`/work/${work.id - 1}`} className="group flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
-                        <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                        <span>上一个作品</span>
-                      </Link>
-                    )}
-                    
-                    {work.id < 6 && (
-                      <Link href={`/work/${work.id + 1}`} className="group flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
-                        <span>下一个作品</span>
-                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </Link>
-                    )}
-                  </div>
-                </div>
+              {/* 返回按钮 - 简化设计 */}
+              <div className="mt-12 pt-6 border-t border-gray-200 text-center">
+                <Link href="/work" className="group inline-flex items-center gap-3 px-8 py-4 bg-gray-900 text-white font-light rounded-full hover:bg-gray-800 transition-all duration-300">
+                  <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  <span>返回作品列表</span>
+                </Link>
               </div>
             </div>
           </div>

@@ -97,14 +97,14 @@ const CareersPage = () => {
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
         {/* Hero Section */}
-        <section className="pt-16 pb-16">
+        <section className="large-padding pt-16 pb-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="h1-title text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 加入我们的
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> 创意团队</span>
               </h1>
@@ -116,16 +116,16 @@ const CareersPage = () => {
         </section>
 
         {/* Why Join Us */}
-        <section className="py-16 bg-white">
+        <section className="large-padding py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="large-margin text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">为什么选择ThanLab？</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 在这里，你将获得专业成长、创意自由和团队协作的完美平衡
               </p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="three-column-icons grid md:grid-cols-3 gap-8">
               {[
                 {
                   icon: '🎨',

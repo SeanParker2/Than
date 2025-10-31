@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     // 页面加载动画逻辑
     const handleStart = () => setPageLoading(true);
     const handleComplete = () => {
-      setTimeout(() => setPageLoading(false), 2000);
+      setTimeout(() => setPageLoading(false), 800);
     };
 
     router.events.on('routeChangeStart', handleStart);

@@ -46,6 +46,55 @@
     min-height: var(--touch-target-size);
   }
   
+  /* 隐藏滚动条 */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* 标签页导航动画效果 */
+  @keyframes tab-glow {
+    0%, 100% { 
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    }
+    50% { 
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
+    }
+  }
+  
+  @keyframes tab-slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .tab-active {
+    animation: tab-glow 2s ease-in-out infinite;
+  }
+  
+  .tab-enter {
+    animation: tab-slide-in 0.3s ease-out;
+  }
+  
+  /* 悬停缩放效果 */
+  .hover\:scale-102:hover {
+    transform: scale(1.02);
+  }
+  
+  /* 字间距动画 */
+  .group:hover .group-hover\:tracking-wide {
+    letter-spacing: 0.05em;
+  }
+  
   /* 容器间距优化 */
   .container {
     padding-left: var(--mobile-padding);
@@ -268,10 +317,107 @@ button:hover {
   100% { opacity: 1; }
 }
 
-/* 响应式布局优化 */
+/* ========== 响应式设计 - 桌面优先策略 ========== */
+
+/* 平板设备 (max-width: 768px) */
 @media (max-width: 768px) {
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  
+  /* 隐藏桌面导航，显示汉堡包菜单 */
+  .desktop-nav {
+    display: none;
+  }
+  
+  .mobile-nav {
+    display: block;
+  }
+  
+  /* 2列布局堆叠为1列 */
+  .two-column-layout {
+    flex-direction: column !important;
+  }
+  
+  .grid-two-columns {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* 减少大间距 */
+  .large-padding {
+    padding: 80px 0 !important;
+  }
+  
+  .large-margin {
+    margin: 80px 0 !important;
+  }
+}
+
+/* 移动设备 (max-width: 480px) */
+@media (max-width: 480px) {
+  /* 移动端字体大小 */
+  body {
+    font-size: 16px;
+  }
+  
+  /* 3列图标组堆叠为1列 */
+  .three-column-icons {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  
+  .grid-three-columns {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* 进一步减少间距 */
+  .large-padding {
+    padding: 60px 0 !important;
+  }
+  
+  .large-margin {
+    margin: 60px 0 !important;
+  }
+  
+  /* H1标题响应式缩放 */
+  h1, .h1-title {
+    font-size: clamp(2.5rem, 10vw, 4.5rem) !important;
+  }
+  
+  /* Works页面网格 - 1列 */
+  .works-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Works过滤器水平滚动 */
+  .works-filter-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .works-filter-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .works-filter-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .works-filter-tab {
+    padding: 0.75rem 1.5rem;
+    margin-right: 1rem;
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+/* Works页面特殊网格规则 */
+@media (max-width: 768px) and (min-width: 481px) {
+  /* 平板上Works网格为2列 */
+  .works-grid {
+    grid-template-columns: 1fr 1fr !important;
   }
 }

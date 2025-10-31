@@ -43,18 +43,18 @@ const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
           
           {/* 移动端汉堡菜单按钮 */}
           <button 
-            className="md:hidden flex flex-col space-y-1.5 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 touch-manipulation"
+            className="mobile-nav md:hidden flex flex-col justify-center items-center w-12 h-12 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 touch-manipulation"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? '关闭菜单' : '打开菜单'}
             aria-expanded={mobileMenuOpen}
           >
-            <span className={`block w-6 h-0.5 bg-black transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-black transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-black transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-[#333] transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-[#333] mt-1.5 transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-[#333] mt-1.5 transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
           </button>
           
           {/* 桌面端导航 */}
-          <nav className="hidden md:flex items-center space-x-8" role="navigation">
+          <nav className="desktop-nav hidden md:flex items-center space-x-8" role="navigation">
             <Link href="/work" className={`transition-all duration-200 font-medium px-3 py-2 rounded-lg ${currentPath.startsWith('/work') ? 'text-black bg-gray-100' : 'text-gray-600 hover:text-black hover:bg-gray-50'}`}>
               Work
             </Link>
@@ -64,45 +64,45 @@ const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
             <Link href="/contact" className={`transition-all duration-200 font-medium px-3 py-2 rounded-lg ${currentPath.startsWith('/contact') ? 'text-black bg-gray-100' : 'text-gray-600 hover:text-black hover:bg-gray-50'}`}>
               Contact
             </Link>
-            {/* Store页面暂时隐藏 */}
-            {/* <Link href="/store" className={`transition-all duration-200 font-medium px-3 py-2 rounded-lg ${currentPath.startsWith('/store') ? 'text-black bg-gray-100' : 'text-gray-600 hover:text-black hover:bg-gray-50'}`}>
-              Store
-            </Link> */}
           </nav>
         </div>
         
-        {/* 移动端导航菜单 */}
-        <div className={`md:hidden absolute w-full bg-white shadow-lg border-t transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-          <nav className="flex flex-col py-4 px-4 space-y-2" role="navigation">
+        {/* 全屏移动端导航菜单 */}
+        <div className={`fixed inset-0 z-[10000] bg-[#F9F9F9] transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+          {/* 关闭按钮 */}
+          <button 
+            className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-200 transition-colors duration-200"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="关闭菜单"
+          >
+            <svg className="w-6 h-6 text-[#333]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+          {/* 导航链接 - 垂直居中 */}
+          <nav className="flex flex-col items-center justify-center h-full space-y-8" role="navigation">
             <Link 
               href="/work"
-              className={`py-3 px-4 rounded-lg transition-all duration-200 touch-manipulation ${currentPath.startsWith('/work') ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-600 hover:bg-gray-50 active:bg-gray-100'}`}
+              className={`text-4xl font-medium transition-all duration-200 touch-manipulation ${currentPath.startsWith('/work') ? 'text-black' : 'text-gray-600 hover:text-black'}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Work
             </Link>
             <Link 
               href="/story"
-              className={`py-3 px-4 rounded-lg transition-all duration-200 touch-manipulation ${currentPath.startsWith('/story') ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-600 hover:bg-gray-50 active:bg-gray-100'}`}
+              className={`text-4xl font-medium transition-all duration-200 touch-manipulation ${currentPath.startsWith('/story') ? 'text-black' : 'text-gray-600 hover:text-black'}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Story
             </Link>
             <Link 
               href="/contact"
-              className={`py-3 px-4 rounded-lg transition-all duration-200 touch-manipulation ${currentPath.startsWith('/contact') ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-600 hover:bg-gray-50 active:bg-gray-100'}`}
+              className={`text-4xl font-medium transition-all duration-200 touch-manipulation ${currentPath.startsWith('/contact') ? 'text-black' : 'text-gray-600 hover:text-black'}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact
             </Link>
-            {/* Store页面暂时隐藏 */}
-            {/* <Link 
-              href="/store"
-              className={`py-3 px-4 rounded-lg transition-all duration-200 touch-manipulation ${currentPath.startsWith('/store') ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-600 hover:bg-gray-50 active:bg-gray-100'}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Store
-            </Link> */}
           </nav>
         </div>
       </header>
