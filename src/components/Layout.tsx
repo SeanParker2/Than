@@ -22,6 +22,22 @@ const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router]);
+
+  // 背景滚动锁定功能
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      // 菜单打开时锁定背景滚动
+      document.body.style.overflow = 'hidden';
+    } else {
+      // 菜单关闭时恢复背景滚动
+      document.body.style.overflow = '';
+    }
+
+    // 清理函数：组件卸载时恢复滚动
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -48,9 +64,9 @@ const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
             aria-label={mobileMenuOpen ? '关闭菜单' : '打开菜单'}
             aria-expanded={mobileMenuOpen}
           >
-            <span className={`block w-6 h-0.5 bg-[#333] transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-[#333] mt-1.5 transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-[#333] mt-1.5 transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+            <span className="block w-6 h-0.5 bg-[#333] transition-all duration-300"></span>
+            <span className="block w-6 h-0.5 bg-[#333] mt-1.5 transition-all duration-300"></span>
+            <span className="block w-6 h-0.5 bg-[#333] mt-1.5 transition-all duration-300"></span>
           </button>
           
           {/* 桌面端导航 */}
@@ -67,11 +83,22 @@ const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
           </nav>
         </div>
         
-        {/* 全屏移动端导航菜单 */}
-        <div className={`fixed inset-0 z-[10000] bg-[#F9F9F9] transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-          {/* 关闭按钮 */}
+        {/* 全屏覆盖式移动端导航菜单 */}
+        <div 
+          className={`fixed top-0 left-0 w-screen h-screen z-[10000] bg-[#F9F9F9] transition-opacity duration-300 ease-in-out ${
+            mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          }`}
+          style={{
+            position: 'fixed',
+            width: '100vw',
+            height: '100vh',
+            top: 0,
+            left: 0
+          }}
+        >
+          {/* 关闭按钮 - 右上角 */}
           <button 
-            className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-200 transition-colors duration-200"
+            className="absolute top-[30px] right-[30px] w-12 h-12 flex items-center justify-center rounded-lg hover:bg-gray-200 transition-colors duration-200 touch-manipulation"
             onClick={() => setMobileMenuOpen(false)}
             aria-label="关闭菜单"
           >
@@ -80,25 +107,51 @@ const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
             </svg>
           </button>
           
-          {/* 导航链接 - 垂直居中 */}
-          <nav className="flex flex-col items-center justify-center h-full space-y-8" role="navigation">
+          {/* 导航链接 - 完全居中 */}
+          <nav 
+            className="flex flex-col items-center justify-center h-full"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            role="navigation"
+          >
             <Link 
               href="/work"
-              className={`text-4xl font-medium transition-all duration-200 touch-manipulation ${currentPath.startsWith('/work') ? 'text-black' : 'text-gray-600 hover:text-black'}`}
+              className="text-[1.8rem] font-light text-[#333] transition-all duration-200 touch-manipulation hover:opacity-70"
+              style={{
+                fontSize: '1.8rem',
+                fontWeight: 300,
+                color: '#333',
+                marginBottom: '40px'
+              }}
               onClick={() => setMobileMenuOpen(false)}
             >
               Work
             </Link>
             <Link 
               href="/story"
-              className={`text-4xl font-medium transition-all duration-200 touch-manipulation ${currentPath.startsWith('/story') ? 'text-black' : 'text-gray-600 hover:text-black'}`}
+              className="text-[1.8rem] font-light text-[#333] transition-all duration-200 touch-manipulation hover:opacity-70"
+              style={{
+                fontSize: '1.8rem',
+                fontWeight: 300,
+                color: '#333',
+                marginBottom: '40px'
+              }}
               onClick={() => setMobileMenuOpen(false)}
             >
               Story
             </Link>
             <Link 
               href="/contact"
-              className={`text-4xl font-medium transition-all duration-200 touch-manipulation ${currentPath.startsWith('/contact') ? 'text-black' : 'text-gray-600 hover:text-black'}`}
+              className="text-[1.8rem] font-light text-[#333] transition-all duration-200 touch-manipulation hover:opacity-70"
+              style={{
+                fontSize: '1.8rem',
+                fontWeight: 300,
+                color: '#333'
+              }}
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact
