@@ -10,6 +10,54 @@ export default function Home() {
   const basePath = router.basePath || '';
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+  // 轮播数据
+  const heroSlides = [
+    {
+      id: 1,
+      title: '「番茄作家助手APP」品牌形象设计',
+      subtitle: '今日头条旗下番茄系列针对作家的便捷写作APP',
+      image: 'home_hero_banner.jpeg'
+    },
+    {
+      id: 2,
+      title: '识区智能阅读应用设计',
+      subtitle: '基于AI技术的智能阅读应用界面设计',
+      image: 'home_work_1.png'
+    },
+    {
+      id: 3,
+      title: '字节内测系列产品设计',
+      subtitle: '字节跳动内测产品的创新设计探索',
+      image: 'home_work_3.png'
+    },
+    {
+      id: 4,
+      title: '珠海城市形象宣传设计',
+      subtitle: '珠海城市形象标识与宣传品设计',
+      image: 'home_work_4.png'
+    },
+    {
+      id: 5,
+      title: '深圳万象城商业地产设计',
+      subtitle: '深圳万象城商业地产项目的品牌形象设计',
+      image: 'home_work_5.png'
+    },
+    {
+      id: 6,
+      title: '创新科技产品界面设计',
+      subtitle: '前沿科技产品的用户界面设计',
+      image: 'home_work_6.png'
+    },
+    {
+      id: 7,
+      title: '品牌视觉系统设计',
+      subtitle: '完整的品牌视觉识别系统设计',
+      image: 'home_work_2.png'
+    },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -17,6 +65,16 @@ export default function Home() {
     setIsVisible(true);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // 轮播自动播放
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [heroSlides.length]);
+
+
 
   // 作品数据定义
   const workData = [
@@ -100,108 +158,221 @@ export default function Home() {
           }}
         />
       </Head>
-      {/* Hero Banner - 日系简约风格 */}
-      <section className="relative w-full min-h-screen flex items-center py-20" style={{ backgroundColor: '#F9F9F9' }}>
+      {/* Hero Banner - 全屏轮播 */}
+      <section className="relative w-full overflow-hidden" style={{ height: 'calc(100vh - 80px)' }}>
+        {/* 轮播容器 */}
+        <div className="relative w-full h-full">
+          {heroSlides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
+                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              {/* 背景图片 */}
+              <div
+                className="absolute inset-0 w-full h-full bg-cover bg-center"
+                style={{
+                  backgroundImage: `url(${basePath}/images/${slide.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              />
+              
+              {/* 遮罩层 */}
+              <div className="absolute inset-0 bg-black bg-opacity-30" />
+              
+              {/* 内容区域 */}
+              <div className="absolute bottom-16 left-16 text-white z-10 max-w-2xl">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-light mb-3 leading-tight">
+                  {slide.title}
+                </h1>
+                <h2 className="text-base md:text-lg font-light opacity-90 leading-relaxed">
+                  {slide.subtitle}
+                </h2>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 初心使然 - 新内容板块 */}
+      <section className="bg-white" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="h1-title text-5xl sm:text-6xl lg:text-7xl font-light mb-12 text-gray-800 leading-tight">
-              Than Studio
-            </h1>
-            <div className="mb-16">
-              <p className="text-xl sm:text-2xl text-gray-600 font-light leading-relaxed mb-8">
-                专业设计工作室
+          {/* 两列网格布局 - 文本内容 */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-16">
+            {/* 左侧标题 - 占1/3 (2列) */}
+            <div className="lg:col-span-2">
+              <h2 className="text-4xl sm:text-5xl font-light mb-4 text-gray-800">
+                初心使然
+              </h2>
+              <h3 className="text-2xl sm:text-3xl font-light text-gray-600">
+                Our Ambition
+              </h3>
+            </div>
+            
+            {/* 右侧段落 - 占2/3 (3列) */}
+            <div className="lg:col-span-3">
+              <p className="text-lg text-gray-800 leading-relaxed mb-6">
+                我们创造变革性的品牌，推动企业、人民和世界前进。
               </p>
-              <p className="text-lg text-gray-500 font-light leading-relaxed max-w-2xl">
-                专注于品牌形象、空间设计和视觉创意<br />
-                追求永恒的设计价值
+              <p className="text-lg text-gray-600 leading-relaxed">
+                We create transformative brands that move businesses, people and the world forward.
               </p>
             </div>
-            <Link href="/work" className="inline-block text-gray-800 font-light text-lg border-b border-gray-300 hover:border-gray-800 transition-colors duration-300 pb-1">
-              查看作品
-            </Link>
+          </div>
+
+          {/* 视频播放器 */}
+          <div className="mt-16">
+            <div className="relative w-full max-w-4xl mx-auto">
+              {/* 视频占位图容器 */}
+              <div className="relative aspect-video bg-gray-900 rounded-lg overflow-hidden cursor-pointer group"
+                   onClick={() => setIsVideoModalOpen(true)}>
+                {/* 占位图背景 */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${basePath}/images/home_hero_banner.jpeg)`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
+                
+                {/* 遮罩层 */}
+                <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300" />
+                
+                {/* 红色播放按钮 */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:bg-red-700 transition-all duration-300 group-hover:scale-110">
+                    <svg 
+                      className="w-8 h-8 text-white ml-1" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 关于 Than Studio - 日系简约设计 */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="container mx-auto px-6 lg:px-8 text-center">
-          <h1 className="h1-title text-4xl sm:text-5xl lg:text-6xl font-light mb-8 text-gray-800 leading-tight">
-            Than Studio
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            专注于创造独特而有意义的设计体验，将创意与功能完美融合
-          </p>
+      {/* 视频模态框 */}
+      {isVideoModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
+             onClick={() => setIsVideoModalOpen(false)}>
+          <div className="relative w-full max-w-4xl mx-4">
+            {/* 关闭按钮 */}
+            <button 
+              className="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300 transition-colors duration-200"
+              onClick={() => setIsVideoModalOpen(false)}
+            >
+              ✕
+            </button>
+            
+            {/* 视频容器 */}
+            <div className="relative aspect-video bg-black rounded-lg overflow-hidden"
+                 onClick={(e) => e.stopPropagation()}>
+              <video 
+                className="w-full h-full"
+                controls
+                autoPlay
+                src="video/studio.mp4"
+              >
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+          </div>
         </div>
-      </section>
+      )}
 
-      {/* 关于Than Studio */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: '#F9F9F9' }}>
+      {/* 定制化方案 - 彩色网格 */}
+      <section className="py-20 lg:py-28 bg-white">
         <div className="container mx-auto px-6 lg:px-8">
           {/* 标题区域 */}
-          <div className="mb-20">
-            <h2 className="text-3xl sm:text-4xl font-light mb-6 text-gray-800">
-              关于Than Studio
+          <div className="mb-16">
+            <h2 className="text-4xl sm:text-5xl font-light mb-4 text-gray-800">
+              定制化方案
             </h2>
+            <h3 className="text-2xl sm:text-3xl font-light mb-6 text-gray-600">
+              Selected Work
+            </h3>
+            <p className="text-lg text-gray-600 leading-relaxed max-w-4xl">
+              从品牌标识设计到广告宣传，从包装设计到数字媒体，我们提供全方位的平面设计服务。我们的目标是帮助您的品牌在竞争激烈的市场中脱颖而出，让您的产品和信息以最吸引人的方式呈现给世界。
+            </p>
           </div>
           
-          {/* 服务卡片 */}
-          <div className="three-column-icons grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          {/* 4x2 彩色网格 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {[
               {
-                icon: (
-                  <svg className="w-8 h-8" fill="none" stroke="#333" viewBox="0 0 24 24" strokeWidth="1.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <circle cx="12" cy="12" r="6"/>
-                    <circle cx="12" cy="12" r="2"/>
-                  </svg>
-                ),
-                title: '品牌形象',
-                description: '我们提供从品牌策略到视觉识别 (VI) 的完整服务，帮助客户建立独特、清晰且有力的品牌形象。'
+                number: '01',
+                title: '品牌设计',
+                description: '品牌战略/定位/策略/文化，Logo/标志/VI/视觉系统',
+                bgColor: 'bg-black'
               },
               {
-                icon: (
-                  <svg className="w-8 h-8" fill="none" stroke="#333" viewBox="0 0 24 24" strokeWidth="1.5">
-                    <path d="m12 19 7-7 3 3-7 7-3-3z"/>
-                    <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
-                    <path d="m2 2 7.586 7.586"/>
-                    <circle cx="11" cy="11" r="2"/>
-                  </svg>
-                ),
-                title: '视觉设计',
-                description: '我们专注于高品质的视觉传达。无论是线上界面 (UI/UX) 还是线下物料，我们都致力于通过卓越的设计提升品牌价值。'
+                number: '02',
+                title: '数字营销/运营',
+                description: '数字营销、网站建设、运营年服APP/小程序',
+                bgColor: 'bg-cyan-400'
               },
               {
-                icon: (
-                  <svg className="w-8 h-8" fill="none" stroke="#333" viewBox="0 0 24 24" strokeWidth="1.5">
-                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                    <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
-                    <line x1="12" y1="22.08" x2="12" y2="12"/>
-                  </svg>
-                ),
-                title: '空间创意',
-                description: '我们将品牌理念延伸至物理空间。通过展览、零售或办公环境的创意设计，我们为用户打造沉浸式的品牌体验。'
+                number: '03',
+                title: '视觉传达/平面',
+                description: 'IP吉祥物、主KV、画册 广告创意&设计、品牌年服',
+                bgColor: 'bg-gray-300'
+              },
+              {
+                number: '04',
+                title: '产品包装',
+                description: '产品策划、产品创新、包装设计、 产品全案、产品包装体系',
+                bgColor: 'bg-orange-400'
+              },
+              {
+                number: '05',
+                title: '空间&导视',
+                description: '品牌战略/定位/策略/文化，Logo/标志/VI/ 视觉系统',
+                bgColor: 'bg-red-500'
+              },
+              {
+                number: '06',
+                title: '影视/TVC',
+                description: '短视频、宣传片、广告TVC、拍摄',
+                bgColor: 'bg-purple-500'
+              },
+              {
+                number: '07',
+                title: '文创',
+                description: 'IP文创产品创意开发、礼品开发',
+                bgColor: 'bg-blue-500'
+              },
+              {
+                number: '08',
+                title: '工程施工',
+                description: '标识/导视制作，展览展示实施， 连锁店施工，城市雕塑与景观施工',
+                bgColor: 'bg-gray-600'
               }
-            ].map((service, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gray-50 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-gray-100 group-hover:scale-110">
-                  {service.icon}
+            ].map((item, index) => (
+              <div 
+                key={index} 
+                className={`${item.bgColor} text-white p-8 aspect-square flex flex-col justify-between transition-transform duration-300 hover:scale-105`}
+              >
+                <div>
+                  <div className="text-4xl font-light mb-4 opacity-90">
+                    {item.number}
+                  </div>
+                  <h4 className="text-xl font-medium mb-3">
+                    {item.title}
+                  </h4>
                 </div>
-                <h3 className="text-xl font-medium mb-3 text-gray-800">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {service.description}
+                <p className="text-sm leading-relaxed opacity-90">
+                  {item.description}
                 </p>
               </div>
             ))}
-          </div>
-          
-          {/* 装饰性文字 */}
-          <div className="text-center mt-16">
-            <p className="text-sm text-gray-400 font-light tracking-widest uppercase">
-              Design • Create • Inspire
-            </p>
           </div>
         </div>
       </section>
