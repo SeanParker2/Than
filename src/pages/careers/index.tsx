@@ -91,8 +91,8 @@ const CareersPage = () => {
   return (
     <>
       <Head>
-        <title>加入我们 - ThanLab</title>
-        <meta name="description" content="加入ThanLab团队，与我们一起创造卓越的设计作品" />
+        <title>加入我们 - Than Studio</title>
+        <meta name="description" content="加入Than Studio团队，与我们一起创造卓越的设计作品" />
       </Head>
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
@@ -119,7 +119,7 @@ const CareersPage = () => {
         <section className="large-padding py-16 bg-white">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="large-margin text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">为什么选择ThanLab？</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">为什么选择Than Studio？</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 在这里，你将获得专业成长、创意自由和团队协作的完美平衡
               </p>

@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 export default function Work() {
   const router = useRouter();
-  const basePath = process.env.NODE_ENV === 'production' ? '/ThanLab' : '';
+  const basePath = process.env.NODE_ENV === 'production' ? '/Than' : '';
   const [activeFilter, setActiveFilter] = useState('全部作品');
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState<number>(0);

@@ -31,7 +31,7 @@ const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-              src="/logo/logo.png"
+              src="logo/logo.png"
               alt="Than Studio"
               width={56}
               height={20}

@@ -463,7 +463,7 @@ export default function NewsDetail() {
   const [news, setNews] = useState<NewsDetail | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const basePath = process.env.NODE_ENV === 'production' ? '/ThanLab' : '';
+  const basePath = process.env.NODE_ENV === 'production' ? '/Than' : '';
 
   useEffect(() => {
     if (id) {

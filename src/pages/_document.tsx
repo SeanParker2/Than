@@ -29,13 +29,13 @@ export default function Document() {
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         
         {/* Favicon 和图标 */}
-        <link rel="icon" href={`${process.env.NODE_ENV === 'production' ? '/ThanLab' : ''}/favicon.ico`} sizes="any" />
-        <link rel="icon" href={`${process.env.NODE_ENV === 'production' ? '/ThanLab' : ''}/favicon.svg`} type="image/svg+xml" />
-        <link rel="apple-touch-icon" sizes="180x180" href={`${process.env.NODE_ENV === 'production' ? '/ThanLab' : ''}/apple-touch-icon.png`} />
-        <link rel="icon" type="image/png" sizes="32x32" href={`${process.env.NODE_ENV === 'production' ? '/ThanLab' : ''}/favicon-32x32.png`} />
-        <link rel="icon" type="image/png" sizes="16x16" href={`${process.env.NODE_ENV === 'production' ? '/ThanLab' : ''}/favicon-16x16.png`} />
-        <link rel="manifest" href={`${process.env.NODE_ENV === 'production' ? '/ThanLab' : ''}/site.webmanifest`} />
-        <link rel="mask-icon" href={`${process.env.NODE_ENV === 'production' ? '/ThanLab' : ''}/safari-pinned-tab.svg`} color="#000000" />
+        <link rel="icon" href={`${process.env.NODE_ENV === 'production' ? '/Than' : ''}/favicon.ico`} sizes="any" />
+        <link rel="icon" href={`${process.env.NODE_ENV === 'production' ? '/Than' : ''}/favicon.svg`} type="image/svg+xml" />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${process.env.NODE_ENV === 'production' ? '/Than' : ''}/apple-touch-icon.png`} />
+        <link rel="icon" type="image/png" sizes="32x32" href={`${process.env.NODE_ENV === 'production' ? '/Than' : ''}/favicon-32x32.png`} />
+        <link rel="icon" type="image/png" sizes="16x16" href={`${process.env.NODE_ENV === 'production' ? '/Than' : ''}/favicon-16x16.png`} />
+        <link rel="manifest" href={`${process.env.NODE_ENV === 'production' ? '/Than' : ''}/site.webmanifest`} />
+        <link rel="mask-icon" href={`${process.env.NODE_ENV === 'production' ? '/Than' : ''}/safari-pinned-tab.svg`} color="#000000" />
         
         {/* 结构化数据 - 组织信息 */}
         <script

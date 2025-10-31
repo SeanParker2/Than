@@ -125,7 +125,7 @@ export default function WorkDetail() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
-  const basePath = process.env.NODE_ENV === 'production' ? '/ThanLab' : '';
+  const basePath = process.env.NODE_ENV === 'production' ? '/Than' : '';
 
   useEffect(() => {
     if (id) {
