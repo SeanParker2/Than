@@ -179,18 +179,110 @@ export default function Home() {
                 }}
               />
               
-              {/* 内容区域 */}
-              <div className="absolute bottom-16 left-16 text-white z-10 max-w-2xl">
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-light mb-3 leading-tight">
-                  {slide.title}
-                </h1>
-                <p className="text-base md:text-lg font-light opacity-90 leading-relaxed">
-                  {slide.subtitle}
-                </p>
+              {/* 内容区域 - 响应式优化 */}
+              <div className="hero-content-wrapper">
+                <div className="hero-content">
+                  <h1 className="hero-title">
+                    {slide.title}
+                  </h1>
+                  <p className="hero-subtitle">
+                    {slide.subtitle}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
+        
+        {/* 响应式样式 */}
+        <style jsx>{`
+          .hero-content-wrapper {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            color: white;
+            z-index: 10;
+            max-width: 32rem;
+          }
+          
+          .hero-content {
+            /* 默认样式保持不变 */
+          }
+          
+          .hero-title {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 0.75rem;
+            line-height: 1.25;
+          }
+          
+          .hero-subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            line-height: 1.625;
+          }
+          
+          /* 平板样式 (992px以下) */
+          @media (max-width: 992px) {
+            .hero-title {
+              font-size: 1.75rem;
+            }
+            
+            .hero-subtitle {
+              font-size: 0.95rem;
+            }
+          }
+          
+          /* 手机样式 (600px以下) - 重置布局 */
+          @media (max-width: 600px) {
+            .hero-content-wrapper {
+              position: static;
+              bottom: auto;
+              left: auto;
+              padding: 32px;
+              background: rgba(0, 0, 0, 0.6);
+              backdrop-filter: blur(10px);
+              margin: 0;
+              max-width: none;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-height: 100%;
+            }
+            
+            .hero-content {
+              text-align: center;
+              max-width: 400px;
+            }
+            
+            .hero-title {
+              font-size: 1.25rem;
+              margin-bottom: 1rem;
+              line-height: 1.4;
+            }
+            
+            .hero-subtitle {
+              font-size: 0.875rem;
+              line-height: 1.5;
+            }
+          }
+          
+          /* 更小屏幕优化 */
+          @media (max-width: 480px) {
+            .hero-content-wrapper {
+              padding: 24px;
+            }
+            
+            .hero-title {
+              font-size: 1.125rem;
+            }
+            
+            .hero-subtitle {
+              font-size: 0.8rem;
+            }
+          }
+        `}</style>
       </section>
 
       {/* 初心使然 - 新内容板块 */}
@@ -302,7 +394,7 @@ export default function Home() {
           </div>
           
           {/* 4x2 彩色网格 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="custom-solutions-grid">
             {[
               {
                 number: '01',
@@ -371,6 +463,33 @@ export default function Home() {
               </div>
             ))}
           </div>
+          
+          {/* 响应式样式 */}
+          <style jsx>{`
+            .custom-solutions-grid {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 1.5rem;
+              max-width: 80rem;
+              margin: 0 auto;
+            }
+            
+            /* 平板样式 (992px以下) - 改为2列 */
+            @media (max-width: 992px) {
+              .custom-solutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+              }
+            }
+            
+            /* 手机样式 (600px以下) - 改为1列 */
+            @media (max-width: 600px) {
+              .custom-solutions-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+              }
+            }
+          `}</style>
         </div>
       </section>
 

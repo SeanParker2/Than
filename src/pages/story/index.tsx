@@ -108,33 +108,84 @@ export default function Story() {
         <section className="pt-8 pb-20 lg:pt-12 lg:pb-28" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container mx-auto px-6 lg:px-8">
             {/* 两列文字内容 - 左中文右英文的艺术化布局 */}
-            <div className="story-intro-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', marginBottom: '80px' }}>
+            <div className="story-intro-grid">
               {/* 左侧列 - 中文内容 */}
               <div className="chinese-column">
-                <h3 style={{ 
-                  fontSize: '2.2rem', 
-                  fontWeight: '300', 
-                  lineHeight: '1.6', 
-                  color: '#333',
-                  marginBottom: '0'
-                }}>
+                <h3 className="chinese-title">
                   THAN Studio是一家全球品牌咨询公司，对工作充满雄心，对世界充满乐观。我们致力于帮助客户打破常规，重新定义期望，并激发积极的变革。
                 </h3>
               </div>
               
               {/* 右侧列 - 英文内容 */}
               <div className="english-column">
-                <p style={{ 
-                  fontSize: '1.2rem', 
-                  fontWeight: '400', 
-                  lineHeight: '1.7', 
-                  color: '#4A4A4A',
-                  marginBottom: '0'
-                }}>
+                <p className="english-text">
                   THAN Studio is a global brand consultancy that's ambitious for the work and optimistic for the world. We're here to help our clients defy convention, redefine expectations and ignite positive change.
                 </p>
               </div>
             </div>
+            
+            {/* 响应式样式 */}
+            <style jsx>{`
+              .story-intro-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                margin-bottom: 80px;
+              }
+              
+              .chinese-title {
+                font-size: 2.2rem;
+                font-weight: 300;
+                line-height: 1.6;
+                color: #333;
+                margin-bottom: 0;
+              }
+              
+              .english-text {
+                font-size: 1.2rem;
+                font-weight: 400;
+                line-height: 1.7;
+                color: #4A4A4A;
+                margin-bottom: 0;
+              }
+              
+              /* 768px以下改为1列堆叠 */
+              @media (max-width: 768px) {
+                .story-intro-grid {
+                  grid-template-columns: 1fr;
+                  gap: 40px;
+                  margin-bottom: 60px;
+                }
+                
+                .chinese-title {
+                  font-size: 1.8rem;
+                  line-height: 1.5;
+                }
+                
+                .english-text {
+                  font-size: 1.1rem;
+                  line-height: 1.6;
+                }
+              }
+              
+              /* 600px以下进一步优化 */
+              @media (max-width: 600px) {
+                .story-intro-grid {
+                  gap: 32px;
+                  margin-bottom: 48px;
+                }
+                
+                .chinese-title {
+                  font-size: 1.5rem;
+                  line-height: 1.4;
+                }
+                
+                .english-text {
+                  font-size: 1rem;
+                  line-height: 1.5;
+                }
+              }
+            `}</style>
 
             {/* 视频播放器 */}
             <div className="relative w-full aspect-video bg-gray-900 rounded-lg overflow-hidden">
@@ -196,9 +247,9 @@ export default function Story() {
         {/* 核心理念板块 */}
         <section className="py-32 lg:py-40" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-[40%_1fr] gap-16 lg:gap-20">
+            <div className="core-concept-grid">
               {/* 左侧列 - 更窄，添加上边距打破对称 */}
-              <div className="space-y-16" style={{ marginTop: '100px' }}>
+              <div className="left-column">
                 {/* 图片 1 - 团队 */}
                 <div className="w-full">
                   <img 
@@ -228,7 +279,7 @@ export default function Story() {
               </div>
               
               {/* 右侧列 */}
-              <div>
+              <div className="right-column">
                 {/* 标题 */}
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-10">
                   我们将品牌、文化和经验结合起来，在组织内部和外部产生影响。
@@ -275,7 +326,7 @@ export default function Story() {
             </div>
           </div>
         </section>
-
+        
         {/* 团队成员 + 加入我们 - 融合的人物主题板块 */}
         <section className="py-16" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="container mx-auto px-4">
@@ -292,7 +343,7 @@ export default function Story() {
             </div>
             
             {/* 团队网格 */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+            <div className="team-grid">
               {[
                 { 
                   name: '小A', 
@@ -403,6 +454,8 @@ export default function Story() {
           </div>
         </section>
       </div>
+      
+
     </>
   );
 }

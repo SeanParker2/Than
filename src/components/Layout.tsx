@@ -58,9 +58,9 @@ const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
             </Link>
           </div>
           
-          {/* 移动端汉堡菜单按钮 */}
+          {/* 移动端汉堡菜单按钮 - 在992px以下显示 */}
           <button 
-            className="mobile-nav md:hidden flex flex-col justify-center items-center w-12 h-12 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 touch-manipulation"
+            className="mobile-nav lg:hidden flex flex-col justify-center items-center w-12 h-12 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 touch-manipulation"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? '关闭菜单' : '打开菜单'}
             aria-expanded={mobileMenuOpen}
@@ -70,8 +70,8 @@ const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
             <span className="block w-6 h-0.5 bg-[#333] mt-1.5 transition-all duration-300"></span>
           </button>
           
-          {/* 桌面端导航 */}
-          <nav className="desktop-nav hidden md:flex items-center space-x-8" role="navigation">
+          {/* 桌面端导航 - 在992px以上显示 */}
+          <nav className="desktop-nav hidden lg:flex items-center space-x-8" role="navigation">
             <Link href="/work" className={`transition-all duration-200 font-medium px-3 py-2 rounded-lg ${currentPath.startsWith('/work') ? 'text-black bg-gray-100' : 'text-gray-600 hover:text-black hover:bg-gray-50'}`}>
               Work
             </Link>

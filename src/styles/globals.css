@@ -344,6 +344,20 @@ button:hover {
     grid-template-columns: 1fr !important;
   }
   
+  /* 多列网格响应式 - 768px时改为2列 */
+  .three-column-icons,
+  .grid[class*="grid-cols-3"],
+  .grid[class*="lg:grid-cols-3"],
+  .grid[class*="md:grid-cols-3"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .grid[class*="grid-cols-4"],
+  .grid[class*="lg:grid-cols-4"],
+  .grid[class*="xl:grid-cols-4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
   /* 减少大间距 */
   .large-padding {
     padding: 80px 0 !important;
@@ -354,17 +368,25 @@ button:hover {
   }
 }
 
-/* 移动设备 (max-width: 480px) */
-@media (max-width: 480px) {
+/* 移动设备 (max-width: 600px) */
+@media (max-width: 600px) {
   /* 移动端字体大小 */
   body {
     font-size: 16px;
   }
   
-  /* 3列图标组堆叠为1列 */
-  .three-column-icons {
-    flex-direction: column !important;
-    align-items: center;
+  /* 所有多列网格改为1列 */
+  .three-column-icons,
+  .grid[class*="grid-cols-2"],
+  .grid[class*="grid-cols-3"],
+  .grid[class*="grid-cols-4"],
+  .grid[class*="sm:grid-cols-2"],
+  .grid[class*="md:grid-cols-2"],
+  .grid[class*="md:grid-cols-3"],
+  .grid[class*="lg:grid-cols-3"],
+  .grid[class*="lg:grid-cols-4"],
+  .grid[class*="xl:grid-cols-4"] {
+    grid-template-columns: 1fr !important;
   }
   
   .grid-three-columns {
@@ -411,6 +433,69 @@ button:hover {
     margin-right: 1rem;
     display: inline-block;
     white-space: nowrap;
+  }
+}
+
+/* Story页面特定样式 */
+.core-concept-grid {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  gap: 4rem;
+}
+
+.left-column {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.right-column {
+  display: block;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .core-concept-grid {
+    gap: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .core-concept-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .left-column {
+    margin-top: 0;
+    gap: 2rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .core-concept-grid {
+    gap: 1.5rem;
+  }
+  
+  .left-column {
+    gap: 1.5rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
