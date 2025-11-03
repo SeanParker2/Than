@@ -120,17 +120,17 @@ export default function Work() {
   return (
     <>
       <Head>
-        <title>作品展示 - Than Studio | 品牌设计·UI/UX设计·产品设计作品集</title>
-        <meta name="description" content="探索Than Studio的创意作品集，包含品牌设计、UI/UX设计、产品设计等多个领域的优秀案例。每一个项目都展现了设计的无限可能，体现专业的设计水准和创新思维。" />
-        <meta name="keywords" content="Than Studio,作品集,品牌设计,UI设计,UX设计,产品设计,创意设计,设计案例,深圳设计" />
-        <meta property="og:title" content="作品展示 - Than Studio" />
-        <meta property="og:description" content="探索Than Studio的创意作品集，包含品牌设计、UI/UX设计、产品设计等多个领域的优秀案例。" />
+        <title>作品集 | Than Studio</title>
+        <meta name="description" content="浏览 Than Studio 的精选作品（Selected Work），包括品牌设计、数字营销、视觉传达、产品包装和空间导视等定制化方案。" />
+        <meta name="keywords" content="Than Studio, 作品集, 精选作品, 品牌设计, 数字营销, 视觉传达, 产品包装, 空间导视" />
+        <meta property="og:title" content="作品集 | Than Studio" />
+        <meta property="og:description" content="浏览 Than Studio 的精选作品（Selected Work），包括品牌设计、数字营销、视觉传达、产品包装和空间导视等定制化方案。" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://seanparker2.github.io/Than/work/" />
         <meta property="og:image" content="https://seanparker2.github.io/Than/images/home_work_1.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="作品展示 - Than Studio" />
-        <meta name="twitter:description" content="探索Than Studio的创意作品集，包含品牌设计、UI/UX设计、产品设计等多个领域的优秀案例。" />
+        <meta name="twitter:title" content="作品集 | Than Studio" />
+        <meta name="twitter:description" content="浏览 Than Studio 的精选作品（Selected Work），包括品牌设计、数字营销、视觉传达、产品包装和空间导视等定制化方案。" />
         <meta name="twitter:image" content="https://seanparker2.github.io/Than/images/home_work_1.png" />
         <link rel="canonical" href="https://seanparker2.github.io/Than/work/" />
         

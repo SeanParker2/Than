@@ -11,6 +11,7 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
   const router = useRouter();
+  const basePath = router.basePath || '';
   const currentPath = router.pathname;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
@@ -47,7 +48,7 @@ const Layout: React.FC<LayoutProps> = ({ children, pageLoading = false }) => {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-              src="logo/logo.png"
+              src={`${basePath}/logo/logo.png`}
               alt="Than Studio"
               width={56}
               height={20}

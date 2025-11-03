@@ -125,17 +125,17 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Than Studio - 专业设计工作室 | 品牌设计·UI/UX设计·产品设计</title>
-        <meta name="description" content="Than Studio是一家专业的设计工作室，专注于品牌形象设计、UI/UX设计、产品设计等领域。我们致力于为客户提供创新、专业的设计解决方案，追求永恒的设计价值。" />
-        <meta name="keywords" content="Than Studio,设计工作室,品牌设计,UI设计,UX设计,产品设计,视觉设计,深圳设计公司,创意设计" />
-        <meta property="og:title" content="Than Studio - 专业设计工作室" />
-        <meta property="og:description" content="专注于品牌形象设计、UI/UX设计、产品设计的专业工作室，追求永恒的设计价值。" />
+        <title>Than Studio - 品牌 | 视觉 | 空间创意设计</title>
+        <meta name="description" content="Than Studio 是一家创造变革性品牌的创意工作室。我们提供从品牌形象、视觉设计到空间创意的全方位服务，推动企业和世界前进。" />
+        <meta name="keywords" content="Than Studio, 品牌设计, 视觉设计, 空间创意, 创意工作室, 品牌形象设计" />
+        <meta property="og:title" content="Than Studio - 品牌 | 视觉 | 空间创意设计" />
+        <meta property="og:description" content="Than Studio 是一家创造变革性品牌的创意工作室。我们提供从品牌形象、视觉设计到空间创意的全方位服务，推动企业和世界前进。" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://seanparker2.github.io/Than/" />
         <meta property="og:image" content="https://seanparker2.github.io/Than/images/home_hero_banner.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Than Studio - 专业设计工作室" />
-        <meta name="twitter:description" content="专注于品牌形象设计、UI/UX设计、产品设计的专业工作室，追求永恒的设计价值。" />
+        <meta name="twitter:title" content="Than Studio - 品牌 | 视觉 | 空间创意设计" />
+        <meta name="twitter:description" content="Than Studio 是一家创造变革性品牌的创意工作室。我们提供从品牌形象、视觉设计到空间创意的全方位服务，推动企业和世界前进。" />
         <meta name="twitter:image" content="https://seanparker2.github.io/Than/images/home_hero_banner.png" />
         <link rel="canonical" href="https://seanparker2.github.io/Than/" />
         
@@ -179,17 +179,14 @@ export default function Home() {
                 }}
               />
               
-              {/* 遮罩层 */}
-              <div className="absolute inset-0 bg-black bg-opacity-30" />
-              
               {/* 内容区域 */}
               <div className="absolute bottom-16 left-16 text-white z-10 max-w-2xl">
                 <h1 className="text-2xl md:text-3xl lg:text-4xl font-light mb-3 leading-tight">
                   {slide.title}
                 </h1>
-                <h2 className="text-base md:text-lg font-light opacity-90 leading-relaxed">
+                <p className="text-base md:text-lg font-light opacity-90 leading-relaxed">
                   {slide.subtitle}
-                </h2>
+                </p>
               </div>
             </div>
           ))}
@@ -514,96 +511,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 团队成员 - 日系简约设计 */}
-      <section className="py-16" style={{ backgroundColor: '#F9F9F9' }}>
-        <div className="container mx-auto px-4">
-          {/* 标题区域 */}
-          <div className="mb-16">
-            <h2 className="text-3xl sm:text-4xl font-light mb-4 text-gray-800">
-              团队成员
-            </h2>
-            <div className="mb-8">
-              <p className="text-lg text-gray-600 leading-relaxed max-w-2xl">
-                汇聚创意精英，用专业与热情创造非凡设计
-              </p>
-            </div>
-          </div>
-          
-          {/* 团队网格 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-            {[
-              { 
-                name: '小A', 
-                role: '创意总监', 
-                image: 'home_teammate_1.png',
-                description: '拥有15年设计经验，专注于品牌视觉系统设计。擅长从品牌战略出发，构建完整的视觉识别体系。',
-                skills: ['品牌策略', '视觉系统', '创意指导'],
-                color: 'from-blue-500 to-cyan-500'
-              },
-              { 
-                name: '小B', 
-                role: 'UI/UX设计师', 
-                image: 'home_teammate_2.png',
-                description: '专注用户体验设计，致力于创造直观易用的数字产品界面。深谙用户心理，善于将复杂功能转化为简洁优雅的交互体验。',
-                skills: ['用户研究', '交互设计', '原型制作'],
-                color: 'from-purple-500 to-pink-500'
-              },
-              { 
-                name: '小C', 
-                role: '项目经理', 
-                image: 'home_teammate_3.png',
-                description: '项目管理专家，确保每个项目的高质量完美交付。具备敏锐的沟通协调能力，善于平衡创意与商业需求。',
-                skills: ['项目管理', '团队协调', '质量控制'],
-                color: 'from-green-500 to-teal-500'
-              },
-              { 
-                name: '小D', 
-                role: '视觉设计师', 
-                image: 'home_teammate_4.png',
-                description: '视觉传达专家，擅长将抽象的创意理念转化为具象的视觉语言。精通多种设计风格，能够根据不同品牌特性创造独特表达。',
-                skills: ['视觉设计', '插画创作', '品牌应用'],
-                color: 'from-orange-500 to-red-500'
-              }
-            ].map((member, index) => (
-              <div key={index} className="group">
-                {/* 头像 */}
-                <div className="relative w-32 h-32 mb-4">
-                  <div 
-                    className="w-full h-full bg-cover bg-center rounded-full transition-transform duration-300 group-hover:scale-105"
-                    style={{
-                      backgroundImage: `url(${basePath}/images/${member.image})`,
-                    }}
-                  ></div>
-                </div>
-                
-                {/* 基本信息 */}
-                <div>
-                  <h4 className="text-xl font-medium text-gray-800 mb-2">
-                    {member.name}
-                  </h4>
-                  <p className="text-gray-500 text-sm mb-3">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {member.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {/* 加入我们 */}
-          <div className="mt-12">
-            <h3 className="text-2xl font-light text-gray-800 mb-4">加入我们的团队</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl leading-relaxed">
-              我们正在寻找有才华的设计师加入我们的创意团队
-            </p>
-            <Link href="/careers" className="inline-block text-gray-800 font-light text-lg border-b border-gray-300 hover:border-gray-800 transition-colors duration-300 pb-1">
-              查看职位
-            </Link>
-          </div>
-        </div>
-      </section>
+
     </>
   );
 }

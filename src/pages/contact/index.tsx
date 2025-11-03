@@ -26,16 +26,16 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>联系我们 - Than Studio | 专业设计工作室</title>
-        <meta name="description" content="联系Than Studio专业设计团队，获取品牌设计、UI/UX设计、产品设计等服务。24小时内回复，提供一对一专业咨询服务。" />
-        <meta name="keywords" content="Than Studio,设计工作室,联系我们,品牌设计,UI设计,UX设计,产品设计,深圳设计" />
-        <meta property="og:title" content="联系我们 - Than Studio" />
-        <meta property="og:description" content="联系Than Studio专业设计团队，获取专业设计服务和咨询。" />
+        <title>联系我们 | Than Studio</title>
+        <meta name="description" content="联系 Than Studio，获取专业的设计服务。我们期待与您共同创造变革性的品牌。" />
+        <meta name="keywords" content="Than Studio, 联系我们, 设计服务, 变革性品牌" />
+        <meta property="og:title" content="联系我们 | Than Studio" />
+        <meta property="og:description" content="联系 Than Studio，获取专业的设计服务。我们期待与您共同创造变革性的品牌。" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="联系我们 - Than Studio" />
-        <meta name="twitter:description" content="联系Than Studio专业设计团队，获取专业设计服务和咨询。" />
-        <link rel="canonical" href="https://thanstudio.com/contact" />
+        <meta name="twitter:title" content="联系我们 | Than Studio" />
+        <meta name="twitter:description" content="联系 Than Studio，获取专业的设计服务。我们期待与您共同创造变革性的品牌。" />
+        <link rel="canonical" href="https://seanparker2.github.io/Than/contact/" />
       </Head>
       <div className="min-h-screen" style={{ backgroundColor: '#F9F9F9' }}>
       {/* 英雄区域 - 优化间距 */}
